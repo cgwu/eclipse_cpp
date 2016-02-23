@@ -1,0 +1,13 @@
+bin
+obj
+*.out
+*.a
+*.o
+*.so
+*.swp
+*~
+Debug
+*.suo
+*.user
+*.exe
+.metadata
