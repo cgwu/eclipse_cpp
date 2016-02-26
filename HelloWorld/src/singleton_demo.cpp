@@ -17,10 +17,10 @@ class point
 public:
 	int x,y,z;
 	point(int a=0,int b=0,int c=0) : x(a),y(b),z(c) {
-		cout << "point@" << this << " ctor"<< endl;
+//		cout << "point@" << this << " ctor"<< endl;
 	}
 	~point(){
-		cout << "point@" << this << " dtor"<< endl;
+//		cout << "point@" << this << " dtor"<< endl;
 	}
 	void print() const{
 		cout << "(" << x <<"," << y <<"," << z << ")" << endl;
@@ -32,10 +32,10 @@ class point_ex : public singleton<point_ex>
 public:
 	int x,y,z;
 	point_ex(int a=0,int b=0,int c=0) : x(a),y(b),z(c) {
-		cout << "point_ex@" << this << " ctor"<< endl;
+//		cout << "point_ex@" << this << " ctor"<< endl;
 	}
 	~point_ex(){
-		cout << "point_ex@" << this << " dtor"<< endl;
+//		cout << "point_ex@" << this << " dtor"<< endl;
 	}
 	void print() const{
 		cout << "(" << x <<"," << y <<"," << z << ")" << endl;

@@ -39,7 +39,7 @@ public:
 };
 
 
-int main(int argc, char* argv[]){
+int main_operators_demo(int argc, char* argv[]){
 	point_lt p0, p1(1,2,3), p2(3,0,5), p3(3,2,1);
 	cout << boolalpha << (p0 < p1) << endl;
 	cout << boolalpha << (p1 <= p3) << endl;
