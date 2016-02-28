@@ -10,7 +10,7 @@
 #include <boost/xpressive/xpressive_dynamic.hpp>
 using namespace boost::xpressive;
 
-int main(int argc, char* argv[]){
+int main_xpressive_demo(int argc, char* argv[]){
 	cregex reg = cregex::compile("a.c");
 	cout << boolalpha << regex_match("abc",reg) << endl;
 	cout << boolalpha << regex_match("a.c",reg) << endl;
