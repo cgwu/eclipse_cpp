@@ -160,7 +160,7 @@ void test_property_tree(){
 //	write_json("conf.json", pt);
 //	write_ini("conf.ini", pt);
 }
-int main(int argc, char* argv[]){
+int main_container_demo(int argc, char* argv[]){
 	using namespace boost::assign;
 	test_array();
 	cout << "-----unordered_set--------" << endl;
