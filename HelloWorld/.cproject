@@ -49,6 +49,7 @@
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_filesystem-mgw49-mt-1_58"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_thread-mgw49-mt-1_58"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_date_time-mgw49-mt-1_58"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_program_options-mgw49-mt-1_58"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.670598535" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -109,6 +110,7 @@
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_filesystem-mgw49-mt-1_58"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_thread-mgw49-mt-1_58"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_date_time-mgw49-mt-1_58"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_program_options-mgw49-mt-1_58"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.361107230" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;D:\Lib\boost\boost_1_58_0\stageMinGW\lib&quot;"/>

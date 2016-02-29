@@ -13,6 +13,7 @@
 #include <boost/system/system_error.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
+#include <boost/program_options.hpp>
 
 void test_cout_redirect(){
 	using namespace boost::io;
@@ -66,13 +67,56 @@ void test_fstream(){
 	assert(ifs.is_open());
 	cout << ifs.rdbuf();
 }
-int main(int argc, char* argv[]){
+int test_program_options(int ac, char* av[]){
+	namespace po = boost::program_options;
+	try {
+
+	        po::options_description desc("Allowed options");
+	        desc.add_options()
+	            ("help,h", "produce help message这是帮助信息")
+	            ("compression,c", po::value<double>(), "set compression level")
+				("verbose,v", "输出详细信息")
+	        ;
+
+	        po::variables_map vm;
+	        po::store(po::parse_command_line(ac, av, desc), vm);
+	        po::notify(vm);
+
+	        if (vm.count("help")) {
+	            cout << desc << "\n";
+	            return 0;
+	        }
+	        if (vm.count("verbose")) {
+				cout << "verbose被设置" << "\n";
+				return 0;
+			}
+
+	        if (vm.count("compression")) {
+	            cout << "Compression level was set to "
+	                 << vm["compression"].as<double>() << ".\n";
+	        } else {
+	            cout << "Compression level was not set.\n";
+	        }
+	    }
+	    catch(exception& e) {
+	        cerr << "error: " << e.what() << "\n";
+	        return 1;
+	    }
+	    catch(...) {
+	        cerr << "Exception of unknown type!\n";
+	    }
+	    return 0;
+}
+int main_system_demo(int argc, char* argv[]){
 	test_cout_redirect();
 	cout << "-----------" << endl;
 	test_system();
 	cout << "-----------" << endl;
 	test_filesystem();
 	cout << "-----test_fstream------" << endl;
-	test_fstream();
+	//test_fstream();
+	cout << "-----program_options------" << endl;
+	test_program_options(argc, argv);
+
 	return 0;
 }
