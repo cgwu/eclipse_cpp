@@ -119,7 +119,7 @@ void test_auto_slot(){
 
 }
 
-int main(int argc, char* argv[]){
+int main_signals2_demo(int argc, char* argv[]){
 	test_slot::test_slots();
 	cout << "-------------" << endl;
 	test_slot::test_slots_template();
