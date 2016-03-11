@@ -8,7 +8,7 @@
 #include "stdcpp.hpp"
 #include "pyinit.hpp"
 
-int main(int argc, char* argv[]){
+int main_python_demo(int argc, char* argv[]){
 	pyinit init;
 	object i(10);
 	i = 10 * i;

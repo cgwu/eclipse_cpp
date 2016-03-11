@@ -15,7 +15,6 @@ public:
     pyinit(int initsigs = 1){
         assert(initsigs == 0 || initsigs == 1);
         Py_InitializeEx(initsigs);
-        //Py_Initialize();
     }
     ~pyinit(){
         Py_Finalize();
