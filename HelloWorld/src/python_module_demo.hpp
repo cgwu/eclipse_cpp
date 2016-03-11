@@ -14,8 +14,11 @@
  * 2. Cython
  * http://cython.org/
  * Cython is an optimising static compiler for both the Python programming language and the extended Cython programming language (based on Pyrex). It makes writing C extensions for Python as easy as Python itself.
- *
+ * 3. PyCXX
+ * http://cxx.sourceforge.net/
+ * PyCXX is designed to make it easier to extend Python with C++
  */
+
 #include "stdcpp.hpp"
 #include <boost/python.hpp>
 // 第一行必须是#include <boost/python.hpp>
