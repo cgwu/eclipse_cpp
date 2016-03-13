@@ -11,3 +11,4 @@ Debug
 *.user
 *.exe
 .metadata
+**/build-*
