@@ -1,0 +1,20 @@
+﻿<UserControl 
+	x:Class="Assergs.Windows.ToolWindowDockPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:awc="clr-namespace:Assergs.Windows.Controls"
+    xmlns:aw="clr-namespace:Assergs.Windows">
+    
+    <UserControl.Template>
+		<ControlTemplate>
+			<Canvas Name="PART_MainContainer" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ClipToBounds="True">
+				<Rectangle Name="PART_WindowsTabsBackground" Fill="{TemplateBinding aw:ToolWindowDockPanel.WindowsTabsBackground}" Visibility="Collapsed" />
+				<TabControl Name="PART_WindowsTabs" Visibility="Hidden" />
+				<awc:ToolWindowPanelContainer Name="PART_WindowsContainer" />
+				<ScrollBar Name="PART_VerticalScroll" Orientation="Vertical" Visibility="Collapsed" VerticalAlignment="Top" />
+				<ScrollBar Name="PART_HorizontalScroll" Orientation="Horizontal" Visibility="Collapsed" VerticalAlignment="Bottom" />
+			</Canvas>
+		</ControlTemplate>
+    </UserControl.Template>
+    
+</UserControl>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="RoutedEventDemo.FrmDragDrop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoutedEventDemo"
+        mc:Ignorable="d"
+        Title="FrmDragDrop" Height="300" Width="300">
+    <Grid>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="21,45,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" MouseDown="textBox_MouseDown"/>
+        <Label x:Name="lblTarget1" Content="Label" AllowDrop="True" HorizontalAlignment="Left" Margin="21,114,0,0" VerticalAlignment="Top" Height="54" Width="98" Drop="lblTarget1_Drop"/>
+        <Label x:Name="lblTarget2" Content="Label" AllowDrop="True" HorizontalAlignment="Left" Margin="176,51,0,0" VerticalAlignment="Top" Height="64" Width="90" Drop="lblTarget2_Drop"/>
+
+    </Grid>
+</Window>

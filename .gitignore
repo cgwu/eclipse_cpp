@@ -12,3 +12,4 @@ Debug
 *.exe
 .metadata
 **/build-*
+**/packages

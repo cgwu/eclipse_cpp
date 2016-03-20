@@ -1,0 +1,148 @@
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:aw="clr-namespace:Assergs.Windows"
+	xmlns:awc="clr-namespace:Assergs.Windows.Controls"
+	>
+
+    <SolidColorBrush x:Key="RibbonPanelBorder" Color="{x:Static aw:RibbonPanelDefaultStylePallet.RibbonPanelBorder}"/>
+    <SolidColorBrush x:Key="RibbonPanelBackground" Color="{x:Static aw:RibbonPanelDefaultStylePallet.RibbonPanelBackground}"/>
+    <SolidColorBrush x:Key="RibbonPanelMouseEnterBorder" Color="{x:Static aw:RibbonPanelDefaultStylePallet.RibbonPanelMouseEnterBorder}"/>
+    <SolidColorBrush x:Key="RibbonPanelMouseEnterBackground" Color="{x:Static aw:RibbonPanelDefaultStylePallet.RibbonPanelMouseEnterBackground}"/>
+    
+    <SolidColorBrush x:Key="BottonBorder1" Color="{x:Static aw:RibbonPanelDefaultStylePallet.BottonBorder1}"/>
+    <SolidColorBrush x:Key="BottonBorder2" Color="{x:Static aw:RibbonPanelDefaultStylePallet.BottonBorder2}"/>
+              
+	<Style TargetType="awc:RibbonPanel">
+		<Setter Property="Margin" Value="0,0,3,0" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Focusable" Value="False"/>
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="awc:RibbonPanel">
+
+					<Border
+						x:Name="masterBorder"
+						CornerRadius="2.5"
+						BorderThickness="1"
+						SnapsToDevicePixels="True"
+						>
+
+						<Border.BorderBrush>
+							<SolidColorBrush x:Name="masterBorderBrush" Color="{x:Static aw:RibbonPanelDefaultStylePallet.RibbonPanelBorder}" />
+						</Border.BorderBrush>
+
+						<Border.Background>
+							<SolidColorBrush x:Name="backgroundBrush" Color="Transparent" />
+						</Border.Background>
+
+						<DockPanel>
+							<Border x:Name="bottonBorder" DockPanel.Dock="Bottom" CornerRadius="0,0,2.5,2.5" Height="15">
+								<Border.Background>
+									<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+										<GradientStop x:Name="bottonBorderGradientStop1" Offset="1" Color="{x:Static aw:RibbonPanelDefaultStylePallet.BottonBorder1}" />
+										<GradientStop x:Name="bottonBorderGradientStop2" Offset="1" Color="{x:Static aw:RibbonPanelDefaultStylePallet.BottonBorder2}" />
+									</LinearGradientBrush>
+								</Border.Background>
+								
+								<TextBlock Margin="3,0,3,0" HorizontalAlignment="Center" Text="{TemplateBinding Header}" />
+								
+							</Border>
+
+							<ContentPresenter Margin="3,1,3,1" />
+
+						</DockPanel>
+
+					</Border>
+
+					<ControlTemplate.Triggers>
+
+						<EventTrigger RoutedEvent="Mouse.MouseEnter">
+							<EventTrigger.Actions>
+								<BeginStoryboard>
+									<Storyboard>
+
+										<ColorAnimation
+											Storyboard.TargetName="masterBorderBrush"
+											Storyboard.TargetProperty="Color"
+											To="{x:Static aw:RibbonPanelDefaultStylePallet.RibbonPanelMouseEnterBorder}"
+											Duration="0:0:0.5"
+											/>
+
+										<ColorAnimation
+											Storyboard.TargetName="backgroundBrush"
+											Storyboard.TargetProperty="Color"
+											To="#4CFFFFFF"
+											Duration="0:0:0.5"
+											/>
+
+										<ColorAnimation
+											Storyboard.TargetName="bottonBorderGradientStop1"
+											Storyboard.TargetProperty="Color"
+											To="{x:Static aw:RibbonPanelDefaultStylePallet.RibbonPanelMouseEnterBackground}"
+											Duration="0:0:0.5"
+											/>
+
+										<DoubleAnimation
+											Storyboard.TargetName="bottonBorderGradientStop1"
+											Storyboard.TargetProperty="Offset"
+											To="0.85"
+											Duration="0:0:0.5"
+											/>
+
+									</Storyboard>
+								</BeginStoryboard>
+							</EventTrigger.Actions>
+						</EventTrigger>
+
+						<EventTrigger RoutedEvent="Mouse.MouseLeave">
+							<EventTrigger.Actions>
+								<BeginStoryboard>
+									<Storyboard>
+
+										<ColorAnimation
+											Storyboard.TargetName="masterBorderBrush"
+											Storyboard.TargetProperty="Color"
+											To="{x:Static aw:RibbonPanelDefaultStylePallet.RibbonPanelBorder}"
+											Duration="0:0:0.5"
+											/>
+
+										<ColorAnimation
+											Storyboard.TargetName="backgroundBrush"
+											Storyboard.TargetProperty="Color"
+											To="Transparent"
+											Duration="0:0:0.5"
+											/>
+
+										<ColorAnimation
+											Storyboard.TargetName="bottonBorderGradientStop1"
+											Storyboard.TargetProperty="Color"
+											To="{x:Static aw:RibbonPanelDefaultStylePallet.RibbonPanelBackground}"
+											Duration="0:0:0.5"
+											/>
+
+										<DoubleAnimation
+											Storyboard.TargetName="bottonBorderGradientStop1"
+											Storyboard.TargetProperty="Offset"
+											To="1"
+											Duration="0:0:0.5"
+											/>
+
+									</Storyboard>
+								</BeginStoryboard>
+
+							</EventTrigger.Actions>
+						</EventTrigger>
+
+					</ControlTemplate.Triggers>
+
+				</ControlTemplate>
+
+			</Setter.Value>
+		</Setter>
+
+	</Style>
+
+</ResourceDictionary>

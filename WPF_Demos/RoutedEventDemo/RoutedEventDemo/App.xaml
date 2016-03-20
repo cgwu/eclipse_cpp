@@ -1,0 +1,9 @@
+﻿<Application x:Class="RoutedEventDemo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RoutedEventDemo"
+             StartupUri="FrmThemeChange.xaml">
+    <Application.Resources>
+        <ResourceDictionary Source="WPF_Themes/ExpressionLight.xaml"/>
+    </Application.Resources>
+</Application>

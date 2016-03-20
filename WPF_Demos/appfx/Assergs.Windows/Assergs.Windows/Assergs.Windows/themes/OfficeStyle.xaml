@@ -1,0 +1,59 @@
+<ResourceDictionary
+	x:Class="Assergs.Windows.OfficeStyle"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:aw="clr-namespace:Assergs.Windows"
+	>
+
+	<ResourceDictionary.MergedDictionaries>
+           
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Controls/ImageButtonDefaultStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Controls/HeaderedPanelDefaultStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Controls/ReflectedButtonDefaultStyle.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Controls/UnderlineSeparatorDefaultStyle.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Controls/SearchableComboBoxDefaultStyle.xaml" />
+			
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Ribbon/RibbonDefaultStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Ribbon/RibbonPanelDefaultStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Ribbon/RibbonTabItemDefaultStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Ribbon/RibbonTabItemChromeDefaultStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Windows/ToolWindowDefaultStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Windows/ToolWindowTabItemContainerDefaultStyle.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/Windows/ToolWindowDockPanelDefaultStyle.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/DropDownButton/DropDownButtonDefaultStyle.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/DropDownButton/DropDownMenuItemDefaultStyle.xaml" />
+		
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/ResizeGripStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/StatusBarStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/ComboBox.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/ScrollBar.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/Button.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/TextBox.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/CheckBox.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/GroupBox.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/GroupBox.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/ListBox.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/ListBoxItem.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/ProgressBar.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/ScrollViewer.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/RadioButton.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/Slider.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/Expander.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/TabControl.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/ListView.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/TextBlockStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/Assergs.Windows;component/themes/EditBox.xaml" />
+		
+	</ResourceDictionary.MergedDictionaries>
+	
+	<SolidColorBrush x:Key="DefaultWorkspaceAdorner1BackgroundBrush" Color="{x:Static aw:OfficeColors+Background.OfficeColor8}" />
+	<SolidColorBrush x:Key="DefaultWorkspaceAdorner1StrokeBrush" Color="{x:Static aw:OfficeColors+Background.OfficeColor9}" />
+	<SolidColorBrush x:Key="DefaultWorkspaceAdorner2BackgroundBrush" Color="{x:Static aw:OfficeColors+Background.OfficeColor10}" />
+
+	<LinearGradientBrush x:Key="DefaultWorkspaceBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">		
+		<GradientStop Offset="0" Color="{x:Static aw:OfficeColors+Background.OfficeColor5}" />
+		<GradientStop Offset="0.7" Color="{x:Static aw:OfficeColors+Background.OfficeColor6}" />
+		<GradientStop Offset="1" Color="{x:Static aw:OfficeColors+Background.OfficeColor7}" />
+	</LinearGradientBrush>
+	
+</ResourceDictionary>

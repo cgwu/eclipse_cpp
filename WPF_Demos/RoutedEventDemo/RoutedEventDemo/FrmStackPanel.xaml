@@ -1,0 +1,15 @@
+﻿<Window x:Class="RoutedEventDemo.FrmStackPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoutedEventDemo"
+        mc:Ignorable="d"
+        Title="FrmStackPanel" Height="456" Width="503">
+    <StackPanel Button.Click="Button_Click" Margin="5"  Background="Yellow" MouseMove="StackPanel_MouseMove">
+        <Button x:Name="cmd1">Button 1</Button>
+        <Button x:Name="cmd2" >Button 2</Button>
+        <Button x:Name="cmd3" >Button 3</Button>
+        <Label x:Name="lblPos" Content="Label"/>
+    </StackPanel>
+</Window>

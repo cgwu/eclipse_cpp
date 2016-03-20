@@ -1,0 +1,65 @@
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:aw="clr-namespace:Assergs.Windows"
+	xmlns:awc="clr-namespace:Assergs.Windows.Controls"
+	>
+
+    <SolidColorBrush x:Key="ForegroundColorBrush" Color="{x:Static aw:RibbonDefaultStylePallet.ForegroundColorBrush}"/>
+    <SolidColorBrush x:Key="RibbonBorderBrush" Color="{x:Static aw:RibbonDefaultStylePallet.RibbonBorderBrush}"/>
+    
+    <LinearGradientBrush x:Key="RibbonOuterBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Offset="0.25" Color="{x:Static aw:RibbonDefaultStylePallet.RibbonOuterBackgroundTop}" />
+		<GradientStop Offset="1" Color="{x:Static aw:RibbonDefaultStylePallet.RibbonOuterBackgroundBottom}" />
+	</LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="RibbonBackground" StartPoint="0.5,0" EndPoint="0.5,1">
+		<GradientStop Offset="0" Color="{x:Static aw:RibbonDefaultStylePallet.RibbonBackground1}" />
+		<GradientStop Offset="0.19" Color="{x:Static aw:RibbonDefaultStylePallet.RibbonBackground2}" />
+		<GradientStop Offset="0.19" Color="{x:Static aw:RibbonDefaultStylePallet.RibbonBackground3}" />
+		<GradientStop Offset="1" Color="{x:Static aw:RibbonDefaultStylePallet.RibbonBackground4}" />
+	</LinearGradientBrush>
+    
+    <Style TargetType="{x:Type awc:Ribbon}">
+		<Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}"/>
+		<Setter Property="Padding" Value="2"/>
+		<!--<Setter Property="Height" Value="117"/>-->
+		<Setter Property="BorderBrush" Value="{StaticResource RibbonBorderBrush}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<!--<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>-->
+		<Setter Property="VerticalAlignment" Value="Top"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type awc:Ribbon}">
+
+					<Grid SnapsToDevicePixels="True" ClipToBounds="True" KeyboardNavigation.TabNavigation="Local" Background="{StaticResource RibbonOuterBackground}">
+
+						<Grid Margin="1,1,1,2">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+
+							<TabPanel Grid.Row="0" Panel.ZIndex ="1" KeyboardNavigation.TabIndex="1" Margin="45,0,2,0" IsItemsHost="True" />
+
+							<Border Grid.Row="1"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{StaticResource RibbonBackground}"
+								CornerRadius="2.5"
+								KeyboardNavigation.TabNavigation="Local"
+								KeyboardNavigation.DirectionalNavigation="Contained"
+								KeyboardNavigation.TabIndex="2">
+
+								<ContentPresenter Margin="{TemplateBinding Padding}" ContentSource="SelectedContent" />
+
+							</Border>
+						</Grid>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

@@ -1,0 +1,46 @@
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:aw="clr-namespace:Assergs.Windows"
+	xmlns:awc="clr-namespace:Assergs.Windows.Controls"
+	>
+    
+    <SolidColorBrush x:Key="RibbonBorderBrush" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonBorderBrush}" />
+    
+	<LinearGradientBrush x:Key="RibbonTabItemChromeSelectedBackground" StartPoint="0.5,0" EndPoint="0.5,1" >
+		<GradientStop Offset="0.15" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonTabItemBackground1}" />
+		<GradientStop Offset="0.15" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonTabItemBackground2}" />
+		<GradientStop Offset="1" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonTabItemBackground3}" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="RibbonTabItemChromeKeyboardFocusedBackground" StartPoint="0.5,0" EndPoint="0.5,1" >
+		<GradientStop Offset="0" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonTabItemChromeKeyboardFocused1}" />
+		<GradientStop Offset="0.15" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonTabItemChromeKeyboardFocused2}" />
+		<GradientStop Offset="0.15" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonTabItemChromeKeyboardFocused3}" />
+		<GradientStop Offset="1" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonTabItemChromeKeyboardFocused4}" />
+	</LinearGradientBrush>
+
+	<VisualBrush x:Key="RibbonTabItemChromeMouseOverBackground">
+		<VisualBrush.Visual>
+			<Grid>
+				<Rectangle Width="1" Height="1">
+					<Rectangle.Fill>
+						<RadialGradientBrush Center="0.5,0.2" SpreadMethod="Pad">
+							<GradientStop Offset="0.8" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonTabItemMouseOverBackground}" />
+							<GradientStop Offset="1.2" Color="{x:Static aw:RibbonTabItemChromeDefaultStylePallet.RibbonTabItemChromeMouseOver}" />
+						</RadialGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Rectangle Margin="0,0.5,0,0" Width="1" Height="0.5" Fill="Black" Opacity="0.05" />
+			</Grid>
+		</VisualBrush.Visual>
+	</VisualBrush>
+	
+	<Style TargetType="{x:Type awc:RibbonTabItemChrome}">
+		<Setter Property="SelectedBackground" Value="{StaticResource RibbonTabItemChromeSelectedBackground}" />
+		<Setter Property="BorderBrush" Value="{StaticResource RibbonBorderBrush}" />
+		<Setter Property="KeyboardFocusedBackground" Value="{StaticResource RibbonTabItemChromeKeyboardFocusedBackground}" />
+		<Setter Property="MouseOverBackground" Value="{StaticResource RibbonTabItemChromeMouseOverBackground}" />
+	</Style>
+
+</ResourceDictionary>

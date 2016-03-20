@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assergs.Windows", "Assergs.Windows\Assergs.Windows.csproj", "{4C2D718A-937D-4AA9-B69F-0B8EB1E6A5C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTest", "Test\AppTest.csproj", "{B78F89B8-61CF-4DBA-9E96-BBD210848855}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{7C569DDD-E6E8-4484-AD4C-85DC7BE8A304}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{180B0416-E234-499B-A372-27D5D5A6D918}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs02.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Assergs.Windows\\Assergs.Windows.csproj
+		SccProjectName1 = Assergs.Windows
+		SccLocalPath1 = Assergs.Windows
+		SccProjectUniqueName2 = Test\\AppTest.csproj
+		SccProjectName2 = Test
+		SccLocalPath2 = Test
+		SccProjectUniqueName3 = Tests\\Tests.csproj
+		SccProjectName3 = Tests
+		SccLocalPath3 = Tests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C2D718A-937D-4AA9-B69F-0B8EB1E6A5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C2D718A-937D-4AA9-B69F-0B8EB1E6A5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C2D718A-937D-4AA9-B69F-0B8EB1E6A5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C2D718A-937D-4AA9-B69F-0B8EB1E6A5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78F89B8-61CF-4DBA-9E96-BBD210848855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78F89B8-61CF-4DBA-9E96-BBD210848855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78F89B8-61CF-4DBA-9E96-BBD210848855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78F89B8-61CF-4DBA-9E96-BBD210848855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C569DDD-E6E8-4484-AD4C-85DC7BE8A304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C569DDD-E6E8-4484-AD4C-85DC7BE8A304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C569DDD-E6E8-4484-AD4C-85DC7BE8A304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C569DDD-E6E8-4484-AD4C-85DC7BE8A304}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,56 @@
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:aw="clr-namespace:Assergs.Windows"
+	xmlns:awc="clr-namespace:Assergs.Windows.Controls"
+	>
+
+	<SolidColorBrush x:Key="RibbonBorderBrush" Color="{x:Static aw:RibbonTabItemDefaultStylePallet.RibbonBorderBrush}"/>
+
+	<Style TargetType="awc:RibbonTabItem">
+		<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+		<Setter Property="TextBlock.FontFamily" Value="Segoe UI" />
+		<Setter Property="FontSize" Value="11.25" />
+		<Setter Property="Padding" Value="10,1,10,2"/>
+		<Setter Property="BorderBrush" Value="{StaticResource RibbonBorderBrush}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+		<Setter Property="VerticalContentAlignment" Value="Stretch"/>
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="awc:RibbonTabItem">
+					
+					<!--RenderMouseOver="{TemplateBinding IsMouseOver}"-->
+					<awc:RibbonTabItemChrome
+						BorderBrush="{TemplateBinding BorderBrush}"
+						RenderSelected="{TemplateBinding IsSelected}"
+						RenderKeyboardFocused="{TemplateBinding IsKeyboardFocused}"
+						SnapsToDevicePixels="True">
+
+						<TextBlock
+							Name="Content"
+							Margin="{TemplateBinding Padding}"
+							Text="{TemplateBinding Header}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+							HorizontalAlignment="{Binding Path=HorizontalContentAlignment,RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+							VerticalAlignment="{Binding Path=VerticalContentAlignment,RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+							/>
+
+					</awc:RibbonTabItemChrome>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsSelected" Value="True">
+							<Setter Property="Margin"	Value="0,0,0,-2"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+
+				</ControlTemplate>
+
+			</Setter.Value>
+
+		</Setter>
+
+	</Style>
+
+</ResourceDictionary>

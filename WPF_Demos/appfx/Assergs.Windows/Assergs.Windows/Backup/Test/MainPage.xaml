@@ -1,0 +1,247 @@
+﻿<Page
+	x:Class="Assergs.Windows.Tests.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:aw="clr-namespace:Assergs.Windows;assembly=Assergs.Windows"
+	xmlns:awc="clr-namespace:Assergs.Windows.Controls;assembly=Assergs.Windows"
+	Title="WPF Application Framework"
+	WindowTitle="Office Framework Preview"
+	ShowsNavigationUI="False">
+
+    <Grid>
+
+        <DockPanel>
+
+            <!-- Ribbon -->
+
+            <awc:Ribbon DockPanel.Dock="Top" Height="116">
+
+                <awc:RibbonTabItem x:Name="homeTabItem" Header="Home">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <awc:RibbonPanel Header="Help">
+                            <StackPanel>
+                                <awc:ImageButton IsToolStyle="True"  Orientation="Vertical" ImageSource="Resources/Icons/32x32/Help32.png" Click="btnHelp_Click"/>
+                                <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Exit16.png" HorizontalAlignment="Center" Button.Click="OnClick3">Exit</awc:ImageButton>
+                            </StackPanel>
+                        </awc:RibbonPanel>
+
+                        <awc:RibbonPanel Header="Business">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5,8,0,4">
+                                    <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Enterprise16.png"/>
+                                    <ComboBox Width="150" Margin="0,0,3,0" />
+                                    <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Loupe16.png"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5,4,0,0">
+                                    <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/EnterpriseCad16.png">Store...</awc:ImageButton>
+                                    <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Entity16.png">Entity...</awc:ImageButton>
+                                </StackPanel>
+                            </StackPanel>
+                        </awc:RibbonPanel>
+
+                        <awc:RibbonPanel Header="Panel">
+                            <StackPanel Orientation="Horizontal">
+                                <awc:ImageButton IsToolStyle="True"  Orientation="Vertical" ImageSource="Resources/Icons/32x32/Trefoil32.png">Button</awc:ImageButton>
+                                <awc:ImageButton IsToolStyle="True"  Orientation="Vertical" ImageSource="Resources/Icons/32x32/PrizeQuery32.png">Notebook</awc:ImageButton>
+                            </StackPanel>
+                        </awc:RibbonPanel>
+
+                        <awc:RibbonPanel Header="Windows">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <awc:DropDownButton>
+                                    <awc:DropDownMenuItem TopLevelButtonOrientation="Vertical" DropDownButtonMode="ToggleButtonOnly" HeaderText="Opened" MaxWidth="55" SubmenuOpened="WindowsSubmenu_Opened">
+                                        <awc:DropDownMenuItem.Header>
+                                            <Image Width="32" Height="32" Source="Resources/Icons/32x32/Minimized32.png" />
+                                        </awc:DropDownMenuItem.Header>
+                                        <awc:DropDownMenuItem IsPanelContainer="True" ButtonBase.Click="WindowsSubmenu_ButtonClick">
+                                            <awc:DropDownMenuItem.Header>
+                                                <StackPanel>
+                                                    <Border Height="20" BorderThickness="0,0,0,1" BorderBrush="Gray">
+                                                        <TextBlock Text="Environment Windows" VerticalAlignment="Center" Margin="2,0,0,0" />
+                                                    </Border>
+                                                    <ScrollViewer Width="210" Height="260" Background="White">
+                                                        <WrapPanel Name="_WrapPanel" />
+                                                    </ScrollViewer>
+                                                </StackPanel>
+                                            </awc:DropDownMenuItem.Header>
+                                        </awc:DropDownMenuItem>
+                                    </awc:DropDownMenuItem>
+                                </awc:DropDownButton>
+
+                                <awc:ImageButton Command="{x:Static aw:ToolWindowDockPanel.MaximizeAllWindowsCommand}" IsToolStyle="True" Orientation="Vertical" ImageSource="Resources/Icons/32x32/Maximized32.png">Maximize All</awc:ImageButton>
+                                <awc:ImageButton Command="{x:Static aw:ToolWindowDockPanel.RestoreAllWindowsCommand}" IsToolStyle="True" Orientation="Vertical" ImageSource="Resources/Icons/32x32/Minimized32.png">Restore All</awc:ImageButton>
+
+                            </StackPanel>
+
+                        </awc:RibbonPanel>
+
+                        <awc:RibbonPanel Header="DropDownButtons">
+
+                            <StackPanel Orientation="Horizontal">
+                                
+                                <awc:DropDownButton>
+                                    <awc:DropDownMenuItem TopLevelButtonOrientation="Vertical" DropDownButtonMode="ToggleButtonOnly" HeaderText="Test" >
+                                        <awc:DropDownMenuItem.Header>
+                                            <Image Width="32" Height="32" Source="Resources/Icons/32x32/Trefoil32.png" />
+                                        </awc:DropDownMenuItem.Header>
+                                        <awc:DropDownMenuItem Header="Test One" />
+                                        <awc:DropDownMenuItem Header="Test Two" />
+                                        <awc:DropDownMenuItem Header="Test Three" />
+                                        <awc:DropDownMenuItem Header="Test Four" />
+                                    </awc:DropDownMenuItem>
+                                </awc:DropDownButton>
+
+                                <awc:DropDownButton>
+                                    <awc:DropDownMenuItem TopLevelButtonOrientation="Vertical" DropDownButtonMode="ButtonAndToggleButton" HeaderText="Test" >
+                                        <awc:DropDownMenuItem.Header>
+                                            <Image Width="32" Height="32" Source="Resources/Icons/32x32/Trefoil32.png" />
+                                        </awc:DropDownMenuItem.Header>
+                                        <awc:DropDownMenuItem Header="Test One" />
+                                        <awc:DropDownMenuItem Header="Test Two" />
+                                        <Separator />
+                                        <awc:DropDownMenuItem Header="Test Three" />
+                                        <awc:DropDownMenuItem Header="Test Four" />
+                                    </awc:DropDownMenuItem>
+                                </awc:DropDownButton>
+
+                                <StackPanel Orientation="Vertical">
+
+                                    <awc:DropDownButton HorizontalAlignment="Left">
+                                        <awc:DropDownMenuItem TopLevelButtonOrientation="Horizontal" DropDownButtonMode="ButtonAndToggleButton" HeaderText="Test" >
+                                            <awc:DropDownMenuItem.Header>
+                                                <Image Width="16" Height="16" Source="Resources/Icons/16x16/Entity16.png" />
+                                            </awc:DropDownMenuItem.Header>
+                                            <awc:DropDownMenuItem Header="Test One" />
+                                            <awc:DropDownMenuItem Header="Test Two" />
+                                            <awc:DropDownMenuItem Header="Test Three" />
+                                        </awc:DropDownMenuItem>
+                                    </awc:DropDownButton>
+
+                                    <awc:DropDownButton HorizontalAlignment="Left">
+                                        <awc:DropDownMenuItem TopLevelButtonOrientation="Horizontal" DropDownButtonMode="ButtonAndToggleButton">
+                                            <awc:DropDownMenuItem.Header>
+                                                <Image Width="16" Height="16" Source="Resources/Icons/16x16/Entity16.png" />
+                                            </awc:DropDownMenuItem.Header>
+                                            <awc:DropDownMenuItem Header="Test Four" />
+                                            <awc:DropDownMenuItem Header="Test Five" />
+                                        </awc:DropDownMenuItem>
+                                    </awc:DropDownButton>
+
+                                    <awc:DropDownButton HorizontalAlignment="Left">
+                                        <awc:DropDownMenuItem TopLevelButtonOrientation="Horizontal" DropDownButtonMode="ToggleButtonOnly">
+                                            <awc:DropDownMenuItem.Header>
+                                                <Image Width="16" Height="16" Source="Resources/Icons/16x16/Entity16.png" />
+                                            </awc:DropDownMenuItem.Header>
+                                            <awc:DropDownMenuItem Header="Teste One" />
+                                            <awc:DropDownMenuItem Header="Teste Two" />
+                                            <awc:DropDownMenuItem Header="Teste Three" />
+                                            <awc:DropDownMenuItem Header="Teste Four" />
+                                        </awc:DropDownMenuItem>
+                                    </awc:DropDownButton>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </awc:RibbonPanel>
+
+                    </StackPanel>
+
+                </awc:RibbonTabItem>
+
+                <awc:RibbonTabItem x:Name="InsertTabItem" Header="Advanced">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <awc:RibbonPanel Header="Site Access Control">
+                            <StackPanel Orientation="Horizontal">
+                                <awc:ImageButton IsToolStyle="True"  Orientation="Vertical" ImageSource="Resources/Icons/32x32/User32.png">Edit Perfil</awc:ImageButton>
+                                <StackPanel>
+                                    <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/EditUsers16.png" HorizontalAlignment="Left">Users...</awc:ImageButton>
+                                    <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Key16.png" HorizontalAlignment="Left">Passwords...</awc:ImageButton>
+                                    <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Locker16.png" HorizontalAlignment="Left">Permissions...</awc:ImageButton>
+                                </StackPanel>
+                            </StackPanel>
+                        </awc:RibbonPanel>
+
+                        <awc:RibbonPanel Header="Panel">
+                            <StackPanel>
+                                <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Protocols16.png" HorizontalAlignment="Left">Button</awc:ImageButton>
+                                <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/ProtocolsQuery16.png" HorizontalAlignment="Left">Button</awc:ImageButton>
+                            </StackPanel>
+                        </awc:RibbonPanel>
+
+                        <awc:RibbonPanel Header="Panel">
+                            <StackPanel>
+                                <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Operators16.png" HorizontalAlignment="Left">Button</awc:ImageButton>
+                                <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Grouping16.png" HorizontalAlignment="Left">Button</awc:ImageButton>
+                                <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Selic16.png" HorizontalAlignment="Left">Button</awc:ImageButton>
+                            </StackPanel>
+                        </awc:RibbonPanel>
+
+                        <awc:RibbonPanel Header="Customization">
+                            <StackPanel>
+                                <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/Themes16.png" HorizontalAlignment="Left">Themes</awc:ImageButton>
+                                <awc:ImageButton IsToolStyle="True"  ImageSource="Resources/Icons/16x16/About16.png" HorizontalAlignment="Left">About</awc:ImageButton>
+                            </StackPanel>
+                        </awc:RibbonPanel>
+
+                    </StackPanel>
+
+                </awc:RibbonTabItem>
+
+            </awc:Ribbon>
+
+            <!-- Content -->
+
+            <Grid x:Name="containerGrid" Background="{DynamicResource DefaultWorkspaceBackgroundBrush}">
+
+                <!--<Grid.Background>
+					<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+						<GradientStop Offset="0" Color="#9EBEE7" />
+						<GradientStop Offset="0.7" Color="#567DB1" />
+						<GradientStop Offset="1" Color="#6591CD" />
+					</LinearGradientBrush>
+				</Grid.Background>-->
+
+                <!--
+				Fill="#FF97B6DC"
+				Stroke="#FFAEC7E8"
+				-->
+                <Path
+					Fill="{DynamicResource DefaultWorkspaceAdorner1BackgroundBrush}"
+					Stretch="Fill"
+					Stroke="{DynamicResource DefaultWorkspaceAdorner1StrokeBrush}"
+					Width="505" Data="M0.5,0.5 L480.5,0.5 C362.06667,12.09897 210.5,53.233083 0.5,169.5 z"
+					StrokeThickness="1.5"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Height="159"/>
+
+                <!--
+				Fill="#FFAEC7E8"
+				-->
+                <Path
+					Fill="{DynamicResource DefaultWorkspaceAdorner2BackgroundBrush}"
+					Stretch="Fill"
+					HorizontalAlignment="Left"
+					Width="505"
+					Data="M0.5,0.5 L480.5,0.5 C362.06667,12.09897 210.5,53.233083 0.5,169.5 z"
+					VerticalAlignment="Top"
+					Height="134"/>
+
+                <aw:ToolWindowDockPanel Name="content" />
+
+            </Grid>
+
+        </DockPanel>
+
+        <Canvas Name="_ModalContainer" />
+
+    </Grid>
+
+</Page>

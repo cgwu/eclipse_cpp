@@ -1,0 +1,42 @@
+﻿<aw:ToolWindow
+	x:Class="Assergs.Windows.Tests.HelpWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:aw="clr-namespace:Assergs.Windows;assembly=Assergs.Windows"
+	xmlns:awc="clr-namespace:Assergs.Windows.Controls;assembly=Assergs.Windows"
+	Header="WPF Application Framework"
+	Icon="Resources/Icons/16x16/Darf16.png"
+	Style="{DynamicResource {x:Type aw:ToolWindow}}"
+	>	
+
+	<Grid Margin="20">
+	
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="Auto" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<TextBlock Grid.ColumnSpan="2" Width="400" FontSize="12" FontWeight="Bold"
+			HorizontalAlignment="Left" Margin="0,10,0,10" TextAlignment="Left">			
+			<Hyperlink NavigateUri="http://www.codeplex.com/appfx">Source code at CodePlex</Hyperlink>
+		</TextBlock>
+		
+		<Button Grid.Row="1" Margin="0,10,0,10" Width="140" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Click="ColorizationButton_Click">Coloration Sample</Button>
+
+		<Button Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" Width="140" HorizontalAlignment="Left" VerticalAlignment="Center" Click="SampleButton_Click">Sample ToolWindow</Button>
+
+		<Button Grid.Row="2" Margin="0,10,0,10" Width="140" HorizontalAlignment="Left" VerticalAlignment="Center" Click="ModalButton_Click">Modal ToolWindow</Button>
+		
+		<Button Grid.Row="2" Grid.Column="1" Margin="0,10,0,10" Width="140" HorizontalAlignment="Left" VerticalAlignment="Center" Click="MessageBoxSample_Click">Sample MessageBox</Button>
+		
+		<!--<Button Grid.Row="3" Grid.Column="0" Margin="0,10,0,10" Width="140" HorizontalAlignment="Left" VerticalAlignment="Center" Click="DataGridSample_Click">DataGrid Sample</Button>-->
+
+	</Grid>
+
+</aw:ToolWindow>

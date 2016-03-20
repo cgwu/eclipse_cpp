@@ -1,0 +1,1112 @@
+﻿# region Using Directives
+
+using System;
+using System.Windows.Controls;
+using System.Windows;
+using System.Windows.Input;
+using System.Collections.Generic;
+using System.Windows.Controls.Primitives;
+using System.Collections.Specialized; 
+using System.ComponentModel;
+using System.Windows.Interop;
+
+# endregion
+
+namespace Assergs.Windows
+{
+    # region LengthDefinition
+
+    public class LengthDefinition : FrameworkContentElement
+    {
+        [TypeConverter(typeof(LengthConverter))]
+        public static readonly DependencyProperty MaxLengthProperty;
+        [TypeConverter(typeof(LengthConverter))]
+        public static readonly DependencyProperty MinLengthProperty;
+        public static readonly DependencyProperty LengthProperty;
+
+        static LengthDefinition()
+        {
+            LengthDefinition.LengthProperty = DependencyProperty.Register("Length", typeof(GridLength),
+                typeof(LengthDefinition), new FrameworkPropertyMetadata(new GridLength(1, GridUnitType.Star)));
+            //new PropertyChangedCallback(DefinitionBase.OnUserSizePropertyChanged)),
+            //new ValidateValueCallback(DefinitionBase.IsUserSizePropertyValueValid));
+
+            LengthDefinition.MinLengthProperty = DependencyProperty.Register("MinLength", typeof(double),
+                typeof(LengthDefinition), new FrameworkPropertyMetadata(0));
+            //new PropertyChangedCallback(DefinitionBase.OnUserMinSizePropertyChanged)),
+            //new ValidateValueCallback(DefinitionBase.IsUserMinSizePropertyValueValid));
+
+            LengthDefinition.MaxLengthProperty = DependencyProperty.Register("MaxLength", typeof(double),
+                typeof(LengthDefinition), new FrameworkPropertyMetadata(double.PositiveInfinity));
+            //new PropertyChangedCallback(DefinitionBase.OnUserMaxSizePropertyChanged)),
+            //new ValidateValueCallback(DefinitionBase.IsUserMaxSizePropertyValueValid));
+        }
+
+        //public double ActualLength
+        //{
+        //    get
+        //    {
+        //        double finalColumnDefinitionWidth = 0;
+        //        if (base.InParentLogicalTree)
+        //        {
+        //            finalColumnDefinitionWidth = ((Grid)base.Parent).GetFinalColumnDefinitionWidth(base.Index);
+        //        }
+        //        return finalColumnDefinitionWidth;
+        //    }
+        //}
+
+        [TypeConverter(typeof(LengthConverter))]
+        public double MaxLength
+        {
+            get
+            {
+                return (double)this.GetValue(LengthDefinition.MaxLengthProperty);
+            }
+            set
+            {
+                this.SetValue(LengthDefinition.MaxLengthProperty, value);
+            }
+        }
+
+
+        [TypeConverter(typeof(LengthConverter))]
+        public double MinLength
+        {
+            get
+            {
+                return (double)this.GetValue(LengthDefinition.MinLengthProperty);
+            }
+            set
+            {
+                this.SetValue(LengthDefinition.MinLengthProperty, value);
+            }
+        }
+
+        //public double Offset
+        //{
+        //    get
+        //    {
+        //        double finalOffset = 0;
+        //        if (base.Index != 0)
+        //        {
+        //            finalOffset = base.FinalOffset;
+        //        }
+        //        return finalOffset;
+        //    }
+        //}
+
+        public GridLength Length
+        {
+            get
+            {
+                return (GridLength)this.GetValue(LengthDefinition.LengthProperty);
+            }
+            set
+            {
+                this.SetValue(LengthDefinition.LengthProperty, value);
+            }
+        }
+    }
+
+    # endregion
+
+    public partial class _ToolWindowDockPanel : Panel
+    {
+        # region Declarations
+
+        private ToolWindow _ApplicationModal;
+
+        private int _PanelsCount = 0;
+
+        private TabControl _ContainerTabPanel;
+
+        private bool _RecentAddedWindow;
+
+        # endregion
+
+        # region Constructor
+
+        static _ToolWindowDockPanel()
+        {
+            if (!BrowserInteropHelper.IsBrowserHosted)
+            {
+                KeyboardNavigation.ControlTabNavigationProperty.OverrideMetadata(
+                    typeof(ToolWindowDockPanel), new FrameworkPropertyMetadata(KeyboardNavigationMode.Cycle));
+            }
+        }
+
+        public _ToolWindowDockPanel()
+        {
+            //this._ApplicationModal = null;
+            //this._PanelsCount = 0;
+            this._RecentAddedWindow = false;
+
+            Mouse.AddLostMouseCaptureHandler(this, new MouseEventHandler(this.Mouse_LostMouseCapture));
+
+            this.ApplicationRootControl = Application.Current.MainWindow;
+
+            this._ContainerTabPanel = new TabControl();
+
+            this.Children.Add(this._ContainerTabPanel);
+
+            TabItem tabItem = new TabItem();
+            tabItem.Header = "Item1";
+
+            this._ContainerTabPanel.Items.Add(tabItem);
+        }
+
+        # endregion
+
+        # region Mouse LostMouseCapture Event Handler
+
+        void Mouse_LostMouseCapture(object sender, MouseEventArgs e)
+        {
+            if (this._ApplicationModal != null && Mouse.Captured == null)
+            {
+                this.Lock();
+            }
+        }
+
+        # endregion
+
+        # region Properties
+
+        # region ApplicationRootControl
+
+        public static readonly DependencyProperty ApplicationRootControlProperty = DependencyProperty.
+            Register("ApplicationRootControl", typeof(UIElement), typeof(ToolWindowDockPanel));
+
+        public UIElement ApplicationRootControl
+        {
+            get
+            {
+                return (UIElement)this.GetValue(ToolWindowDockPanel.ApplicationRootControlProperty);
+            }
+            set
+            {
+                if (value != null)
+                {
+                    this.SetValue(ToolWindowDockPanel.ApplicationRootControlProperty, value);
+                    value.GotKeyboardFocus += this.elements_GotKeyboardFocus;
+                }
+            }
+        }
+
+        # endregion
+
+        # region Orientation
+
+        public static readonly DependencyProperty OrientationProperty =
+            DependencyProperty.Register("Orientation", typeof(Orientation),
+            typeof(ToolWindowDockPanel), new FrameworkPropertyMetadata(Orientation.Vertical));
+
+        public Orientation Orientation
+        {
+            get
+            {
+                return (Orientation)this.GetValue(ToolWindowDockPanel.OrientationProperty);
+            }
+            set
+            {
+                this.SetValue(ToolWindowDockPanel.OrientationProperty, value);
+            }
+        }
+
+        # endregion
+
+        # region // FirstSplitter
+
+		//private Splitter _FirstSplitter;
+
+		//internal Splitter FirstSplitter
+		//{
+		//    get
+		//    {
+		//        return this._FirstSplitter;
+		//    }
+		//    set
+		//    {
+		//        this._FirstSplitter = value;
+		//    }
+		//}
+
+        # endregion
+
+        # region // SecondSplitter
+
+		//private Splitter _SecondSplitter;
+
+		//internal Splitter SecondSplitter
+		//{
+		//    get
+		//    {
+		//        return this._SecondSplitter;
+		//    }
+		//    set
+		//    {
+		//        this._SecondSplitter = value;
+		//    }
+		//}
+
+        # endregion
+
+        # endregion
+
+        # region ArrangeLengths
+
+        private void ArrangeLengths()
+        {
+            if (this.Orientation == Orientation.Vertical)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        # endregion
+
+        # region ArrangeOverride
+
+        protected override Size ArrangeOverride(Size finalSize)
+        {
+            // arrange sizes
+			//if (this._PanelsCount > 0)
+			//{
+
+			//}
+
+            foreach (UIElement child in this.InternalChildren)
+            {
+                // panel / spliter / other
+                // has panels
+
+                if (this._PanelsCount == 0)
+                {
+                    if (this.IsRootPanel) // floating content
+                    {
+                        child.Arrange(new Rect(child.DesiredSize));
+                    }
+                    else // docked
+                    {
+                        child.Arrange(new Rect(finalSize));
+                    }
+                }
+				//else // panels orientation
+				//{
+				//    //ToolWindowDockPanel panel = child as ToolWindowDockPanel;
+				//}
+            }
+
+            return finalSize;
+        }
+
+        # endregion
+
+        # region MeasureOverride
+
+        protected override Size MeasureOverride(Size availableSize)
+        {
+            Size totalAvaliableSize = new Size();
+
+            foreach (UIElement child in this.InternalChildren)
+            {
+                //ToolWindow window = child as ToolWindow;
+
+                //if (window != null && window.State == ToolWindowState.Docked)
+                //{
+                //child.Measure(Size.Empty);
+                //}
+                //else
+                //{
+                child.Measure(availableSize);
+
+                totalAvaliableSize = new Size(Math.Max(totalAvaliableSize.Width, child.DesiredSize.Width),
+                    Math.Max(totalAvaliableSize.Height, child.DesiredSize.Height));
+                //}
+            }
+
+            // Wait fos IsVisible to set Focus
+            if (this._RecentAddedWindow)
+            {
+                this._RecentAddedWindow = false;
+				this.Children[this.Children.Count - 1].Focus();
+            }
+
+            return totalAvaliableSize;
+        }
+
+        # endregion
+
+        # region // OnPanelAdded
+
+		/*
+        public virtual void OnPanelAdded(ToolWindowDockPanel panel)
+        {
+            if (++this._PanelsCount == 1)
+            {
+                if (this.IsRootPanel)
+                {
+                    Splitter splitter = new Splitter();
+                    splitter.Orientation = Orientation.Vertical;
+                    splitter.SecondPanel = panel;
+                    this.Children.Insert(this.Children.Count - 1, splitter);
+                    //splitter. // hide FirstCollapse Button
+                    //splitter. // hide SecondCollapse Button
+                }
+                else // get parent orientation and add
+                {
+
+                }
+            }
+            else
+            {
+                //Splitter splitter = new Splitter();
+                //splitter.Orientation = this.Orientation;
+                //splitter.FirstPanel = get firstpanel
+                //splitter.SecondPanel = get firstpanel
+                //this.Children.Insert(this.Children.Count - 1, splitter);
+                //splitter. // hide FirstCollapse Button
+                //splitter. // hide SecondCollapse Button
+            }
+        }
+		*/
+
+        # endregion
+
+        # region OnVisualChildrenChanged
+
+        protected override void OnVisualChildrenChanged(DependencyObject visualAdded, DependencyObject visualRemoved)
+        {
+            base.OnVisualChildrenChanged(visualAdded, visualRemoved);
+
+            if (visualAdded != null) // add
+            {
+                if (this._ApplicationModal != null)
+                {
+                    throw new InvalidOperationException("A application modal window is showing.");
+                }
+
+				//if (visualAdded is ToolWindowDockPanel)
+				//{
+				//    this._PanelsCount++;
+				//    this.OnPanelAdded((ToolWindowDockPanel)visualAdded);
+				//} else
+                if (visualAdded is ToolWindow)
+                {
+					//Type type = visualAdded.GetType();
+					//if (type.GetCustomAttributes(typeof(UniqueInstanceAttribute), false).Length > 0)
+					//{
+					//}
+
+					Panel.SetZIndex((UIElement)visualAdded, this.Children.Count);
+
+                    //Keyboard.Focus((ToolWindow)visualAdded);
+                    this._RecentAddedWindow = true;
+                }
+
+                //ToolWindow window = visualAdded as ToolWindow;
+
+                //if (childWindow == null)
+                //{
+                //    throw new InvalidOperationException("Just \"ToolWindow\" objects can be added on WindowsEnvironment.");
+                //}
+
+                //if (window != null)
+                //{
+                //window.GotKeyboardFocus += this.elements_GotKeyboardFocus;
+                //window.StateChanged += this.window_StateChanged;
+
+                //if (window.Parent != this)
+                //{
+                //    window.Parent = this;
+                //}
+                //}
+            }
+            else // remove
+            {
+                if (this._ApplicationModal != null)
+                {
+                    if (visualRemoved != this._ApplicationModal)
+                    {
+                        throw new InvalidOperationException("A application modal window is showing.");
+                    }
+                    else
+                    {						
+                        this._ApplicationModal = null;
+                        Mouse.Capture(null);
+                    }
+                }
+
+				//if (visualRemoved is ToolWindowDockPanel)
+				//{
+				//    this._PanelsCount--;
+				//} else
+                if (visualRemoved is ToolWindow)
+                {
+					int index = Panel.GetZIndex((UIElement)visualRemoved);
+					this.DecreaseZIndex(index);
+                }
+                //ToolWindow window = visualAdded as ToolWindow;
+
+                //if (window != null)
+                //{
+                //window.GotKeyboardFocus -= this.elements_GotKeyboardFocus;
+                //window.StateChanged -= this.window_StateChanged;
+                //window.Parent = null;
+                //}
+            }
+        }
+
+        # endregion
+
+        # region ShowWindow[Dialog]
+		
+		//public void ShowWindow(ToolWindow window)
+		//{
+		//    this.Children.Add(window);
+		//}
+		public void ShowWindowAsDialog(ToolWindow window)
+		{
+		    this.ShowWindowAsDialog(window, ToolWindowModal.Application);
+		}
+        public void ShowWindowAsDialog(ToolWindow window, ToolWindowModal modal)
+        {
+            if (this._ApplicationModal != null)
+            {
+                throw new InvalidOperationException("A application modal window is being shown.");
+            }
+
+            //if (window.State == ToolWindowState.Docked)
+            //{
+            //    throw new InvalidOperationException("Cannot show a docked window as a dialog.");
+            //}
+
+            if(modal != ToolWindowModal.AncestralOwners && modal != ToolWindowModal.Owner)
+            {
+                throw new NotImplementedException("The modal modes: \"ToolWindowModal.AncestralOwners\"," +
+                    "\"ToolWindowModal.Owner\" weren't be implemented.");
+            }
+
+            #region Linq
+
+            //if (modal.In(ToolWindowModal.AncestralOwners, ToolWindowModal.Owner))
+            //{
+            //    throw new NotImplementedException("The modal modes: \"ToolWindowModal.AncestralOwners\"," +
+            //        "\"ToolWindowModal.Owner\" weren't be implemented.");
+            //}
+
+            #endregion
+
+            if (!this.Children.Contains(window))
+            {
+                this.Children.Add(window); // adjust parent
+            }
+
+            window.Visibility = Visibility.Visible;
+
+            switch (modal)
+            {
+                case ToolWindowModal.Application:
+
+                    this._ApplicationModal = window;
+                    this.Lock();
+
+                    break;
+
+                case ToolWindowModal.AncestralOwners:
+                case ToolWindowModal.Owner:
+
+                    // future
+
+                    break;
+            }
+        }
+
+        //public void ShowWindow(ToolWindow window)
+        //{
+        //    this.ShowWindow(window, null);
+        //}
+        //public void ShowWindowAsDialog(ToolWindow window)
+        //{
+        //    this.ShowWindow(window, null);
+        //}
+        //public void ShowWindowAsDialog(ToolWindow window, ToolWindowModal modal)
+        //{
+        //    this.ShowWindow(window, modal);
+        //}
+        //public void ShowWindow(ToolWindow window, ToolWindowModal? modal)
+        //{
+        //    if (this._ApplicationModal != null)
+        //    {
+        //        throw new InvalidOperationException("A application modal window is being shown.");
+        //    }
+        //    if (modal != null && window.State != ToolWindowState.Floating)
+        //    {
+        //        throw new InvalidOperationException("Cannot show a non-floating window as a dialog.");
+        //    }
+
+        //    if (window.State == ToolWindowState.Floating)
+        //    {
+        //        if (modal.HasValue && modal.Value.In(ToolWindowModal.AncestralOwners, ToolWindowModal.Owner))
+        //        {
+        //            throw new NotImplementedException("The modal modes: \"ToolWindowModal.AncestralOwners\"," +
+        //                "\"ToolWindowModal.Owner\" weren't be implemented.");
+        //        }
+
+        //        if (!this.Children.Contains(window))
+        //        {
+        //            this.Children.Add(window);
+        //        }
+
+        //        window.Visibility = Visibility.Visible;
+
+        //        if (modal != null)
+        //        {
+        //            switch (modal.Value)
+        //            {
+        //                case ToolWindowModal.Application:
+
+        //                    this._ApplicationModal = window;
+        //                    this.Lock();
+
+        //                    break;
+
+        //                case ToolWindowModal.AncestralOwners:
+        //                case ToolWindowModal.Owner:
+
+        //                    // future
+
+        //                    break;
+        //            }
+        //        }
+        //    }
+        //    else // docked
+        //    {
+        //        throw new NotImplementedException("The \"ChildWindowState.Dockable\" mode wasn't be implemented.");
+        //    }
+        //}
+
+        # endregion
+
+        # region CaptureControl
+
+        private void Lock()
+        {
+            Mouse.Capture(this._ApplicationModal, CaptureMode.SubTree);
+        }
+
+        # endregion
+
+        # region elements_GotKeyboardFocus
+
+        void elements_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (this._ApplicationModal != null)
+            {
+                //System.Media.SystemSounds.Beep.Play();
+                this._ApplicationModal.Focus();
+            }
+        }
+
+        # endregion
+
+        # region IsRootPanel
+
+        private bool IsRootPanel
+        {
+            get
+            {
+                return !(this.Parent is ToolWindowDockPanel);
+            }
+        }
+
+        # endregion
+
+        # region // window_StateChanged
+
+        //void window_StateChanged(object sender, RoutedPropertyChangedEventArgs<ToolWindowState> e)
+        //{
+        //    if (e.NewValue == ToolWindowState.Docked)
+        //    {
+        //        if (this.IsDockingEnvironmentRoot)
+        //        {}
+        //        else
+        //        {}
+        //    }
+
+        //    this.InvalidateArrange();
+        //} 
+
+        # endregion
+
+        # region // DockWindow
+
+		/*
+		
+        public void DockWindow(ToolWindow window, ToolWindowDock dock)
+        {
+            Orientation orientation;
+
+            if (dock.In(ToolWindowDock.Left, ToolWindowDock.Right))
+            {
+                orientation = Orientation.Horizontal;
+            }
+            else
+            {
+                orientation = Orientation.Vertical;
+            }
+
+            ToolWindowDockPanel panel = new ToolWindowDockPanel();
+
+            if (window.Parent != null)
+            {
+                window.Parent.Children.Remove(window);
+            }
+
+            panel.Children.Add(window);
+
+            if (this._PanelsCount == 0)
+            {
+                if (dock == ToolWindowDock.Center)
+                {
+                    this.Children.Add(panel);
+                }
+                else
+                {
+                    if (orientation == Orientation.Horizontal)
+                    {
+                        panel.Width = Math.Max(this.ActualWidth / 2D, window.ActualWidth);
+                    }
+                    else
+                    {
+                        panel.Height = Math.Max(this.ActualHeight / 2D, window.ActualHeight);
+                    }
+
+                    this.Children.Add(panel);
+                    this.Children.Add(new ToolWindowDockPanel());
+                }
+            }
+            else
+            {
+                if (this.Orientation == orientation)
+                {
+                    this.Children.Add(panel);
+                }
+                else
+                {
+                    ToolWindowDockPanel panel2 = new ToolWindowDockPanel();
+                    panel2.Orientation = this.Orientation;
+
+                    foreach (UIElement element in this.InternalChildren)
+                    {
+                        this.Children.Remove(element);
+                        panel2.Children.Add(element);
+                    }
+
+                    this.InternalChildren.Add(panel);
+                    this.InternalChildren.Add(panel2);
+                }
+            }
+        }
+		*/
+
+        # endregion
+
+        # region BringElementToFront
+
+        public void BringElementToFront(UIElement element)
+        {
+			int index = Panel.GetZIndex(element);
+			Panel.SetZIndex(element, this.Children.Count);
+			this.DecreaseZIndex(index);
+        }
+
+        # endregion
+
+        # region DecreaseZIndex
+
+        private void DecreaseZIndex(int fromIndex)
+        {
+            foreach (UIElement element in this.Children)
+            {
+                if (element != null)
+                {
+                    int index = Panel.GetZIndex(element);
+
+                    if (index >= fromIndex)
+                    {
+                        Panel.SetZIndex(element, index - 1);
+                    } 
+                }
+            }
+        }
+
+        # endregion
+    }
+
+    # region // Old
+
+    /*
+	public class WindowsEnvironment : Panel
+	{
+		# region Declarations
+
+		private ChildWindow _ApplicationModal;
+
+		public static readonly DependencyProperty ApplicationRootControlProperty;
+
+		private bool _ChildMouseDown;
+		private Point _ChildMoveOrigin;
+
+		private TabControl _TabbedWindowsContainer;
+
+		# endregion
+
+		# region Static Constructor
+
+		static WindowsEnvironment()
+		{
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(WindowsEnvironment),
+				new FrameworkPropertyMetadata(typeof(WindowsEnvironment)));
+
+			WindowsEnvironment.ApplicationRootControlProperty = DependencyProperty.
+				Register("ApplicationRootControl", typeof(UIElement), typeof(WindowsEnvironment));
+		}
+
+		# endregion
+
+		# region Constructor
+
+		public WindowsEnvironment()
+		{
+			this.InitializeComponents();
+
+			this._ApplicationModal = null;
+
+			this.ApplicationRootControl = Application.Current.MainWindow;
+
+			//FocusManager.SetIsFocusScope(this, true);
+			Mouse.AddLostMouseCaptureHandler(this, new MouseEventHandler(this.Window1_Mouse_LostMouseCapture));
+		}
+
+		# endregion
+
+		# region InitializeComponents
+
+		private void InitializeComponents()
+		{
+			this._TabbedWindowsContainer = new TabControl();
+			ComponentResourceKey resourceKey = new ComponentResourceKey(typeof(WindowsEnvironment), "TabbedWindowsTabControlStyle");
+			this._TabbedWindowsContainer.Style = (Style)Application.Current.FindResource(resourceKey);
+			this._TabbedWindowsContainer.Visibility = Visibility.Hidden;
+
+			// test
+
+			//TabItem tabItem = new TabItem();
+			//resourceKey = new ComponentResourceKey(typeof(WindowsEnvironment), "TabbedWindowsTabItemStyle");
+			//Style tabItemStyle = (Style)Application.Current.FindResource(resourceKey);
+			//tabItem.Style = tabItemStyle;
+			//tabItem.Header = "Window1";
+			//this._TabbedWindowsContainer.Items.Add(tabItem);
+
+			//tabItem = new TabItem();			
+			//tabItem.Style = tabItemStyle;
+			//tabItem.Header = "Window2";
+			//this._TabbedWindowsContainer.Items.Add(tabItem);
+
+			//-----
+
+			this.Children.Add(this._TabbedWindowsContainer);
+		}
+
+		# endregion
+
+		# region CaptureControl
+
+		private void Lock()
+		{
+			Mouse.Capture(this._ApplicationModal, CaptureMode.SubTree);
+		}
+
+		# endregion
+
+		# region Mouse LostMouseCapture Event Handler
+
+		void Window1_Mouse_LostMouseCapture(object sender, MouseEventArgs e)
+		{
+			if (this._ApplicationModal != null && Mouse.Captured == null)
+			{
+				this.Lock();
+			}
+		}
+
+		# endregion
+
+		# region ApplicationRootControl
+
+		public UIElement ApplicationRootControl
+		{
+			get
+			{
+				return (UIElement)this.GetValue(WindowsEnvironment.ApplicationRootControlProperty);
+			}
+			set
+			{
+				if (value != null)
+				{
+					this.SetValue(WindowsEnvironment.ApplicationRootControlProperty, value);
+					value.GotKeyboardFocus += this.elements_GotKeyboardFocus;
+				}
+			}
+		}
+
+		# endregion
+
+		# region OnVisualChildrenChanged
+
+		protected override void OnVisualChildrenChanged(DependencyObject visualAdded, DependencyObject visualRemoved)
+		{
+			base.OnVisualChildrenChanged(visualAdded, visualRemoved);
+
+			if (visualAdded != null) // add
+			{
+				if (this._ApplicationModal != null)
+				{
+					throw new InvalidOperationException("A application modal window is showing.");
+				}
+
+				ChildWindow childWindow = visualAdded as ChildWindow;
+
+				//if (childWindow == null)
+				//{
+				//    throw new InvalidOperationException("Just \"ToolWindow\" objects can be added on WindowsEnvironment.");
+				//}
+
+				if (childWindow != null)
+				{
+					childWindow.GotKeyboardFocus += this.elements_GotKeyboardFocus;
+
+					childWindow.DragDelta += new DragDeltaEventHandler(childWindow_DragDelta);
+
+					//this._Windows.Add(childWindow);
+				}
+			}
+			else // remove
+			{
+				if (this._ApplicationModal != null)
+				{
+					if (visualRemoved != this._ApplicationModal)
+					{
+						throw new InvalidOperationException("A application modal window is showing.");
+					}
+					else
+					{
+						this._ApplicationModal = null;
+						Mouse.Capture(null);
+					}
+				}
+			}
+		}
+
+		# endregion
+
+		# region Drag
+
+		void childWindow_DragDelta(object sender, DragDeltaEventArgs e)
+		{
+			ChildWindow child = (ChildWindow)sender;
+
+			double left = child.Margin.Left + e.HorizontalChange;
+
+			if (left < 0)
+			{
+				left = 0;
+			}
+			else if (child.Margin.Left + child.ActualWidth + e.HorizontalChange > this.ActualWidth)
+			{
+				left = this.ActualWidth - child.ActualWidth;
+			}
+
+			double top = child.Margin.Top + e.VerticalChange;
+
+			if (top < 0)
+			{
+				top = 0;
+			}
+			else if (child.Margin.Top + child.ActualHeight + e.VerticalChange > this.ActualHeight)
+			{
+				top = this.ActualHeight - child.ActualHeight;
+			}
+
+			child.Margin = new Thickness(left, top, this.Margin.Right, this.Margin.Bottom);
+		}
+
+		# endregion
+
+		# region elements_GotKeyboardFocus
+
+		void elements_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+		{
+			if (this._ApplicationModal != null)
+			{
+				//System.Media.SystemSounds.Beep.Play();
+				this._ApplicationModal.Focus();
+			}
+		}
+
+		# endregion
+
+		# region ShowChildWindow
+
+		public void ShowChildWindow(ChildWindow childWindow)
+		{
+			this.ShowChildWindow(childWindow, null);
+		}
+		public void ShowChildWindowAsDialog(ChildWindow childWindow)
+		{
+			this.ShowChildWindow(childWindow, null);
+		}
+		public void ShowChildWindowAsDialog(ChildWindow childWindow, ChildWindowModal modal)
+		{
+			this.ShowChildWindow(childWindow, modal);
+		}
+		public void ShowChildWindow(ChildWindow childWindow, ChildWindowModal? modal)
+		{
+			if (this._ApplicationModal != null)
+			{
+				throw new InvalidOperationException("A application modal window is being shown.");
+			}
+			if (modal != null && childWindow.State != ChildWindowState.Floating)
+			{
+				throw new InvalidOperationException("Cannot show a non-floating window as a dialog.");
+			}
+
+			switch (childWindow.State)
+			{
+				case ChildWindowState.Floating:
+
+					if (modal.HasValue && modal.Value.In(ChildWindowModal.AncestralOwners, ChildWindowModal.Owner))
+					{
+						throw new NotImplementedException("The modal modes: \"ChildWindowModal.AncestralOwners\"," +
+							"\"ChildWindowModal.Owner\" weren't be implemented.");
+					}
+
+					if (!this.Children.Contains(childWindow))
+					{
+						this.Children.Add(childWindow);
+					}
+
+					childWindow.Visibility = Visibility.Visible;
+
+					if (modal != null)
+					{
+						switch (modal.Value)
+						{
+							case ChildWindowModal.Application:
+								
+								this._ApplicationModal = childWindow;
+								this.Lock();
+
+								break;
+
+							case ChildWindowModal.AncestralOwners:
+							case ChildWindowModal.Owner:
+
+								// future
+
+								break;
+						}
+					}
+
+					break;
+
+				case ChildWindowState.Dockable:
+
+					throw new NotImplementedException("The \"ChildWindowState.Dockable\" mode wasn't be implemented.");
+
+					break;
+
+				case ChildWindowState.Tabbed:
+
+					if (this.Children.Contains(childWindow))
+						{
+						this.Children.Remove(childWindow);
+					}
+
+					TabItem tabItem = new TabItem();
+					ComponentResourceKey resourceKey = new ComponentResourceKey(typeof(WindowsEnvironment), "TabbedWindowsTabItemStyle");
+					Style tabItemStyle = (Style)Application.Current.FindResource(resourceKey);
+					tabItem.Style = tabItemStyle;
+					tabItem.Header = childWindow.Header;
+					tabItem.Content = childWindow;
+					childWindow.Margin = new Thickness();
+					this._TabbedWindowsContainer.Items.Add(tabItem);
+					this._TabbedWindowsContainer.Visibility = Visibility.Visible;
+					tabItem.Focus();
+
+					break;
+			}
+		}
+
+		# endregion
+
+		# region MeasureOverride
+
+		protected override Size MeasureOverride(Size availableSize)
+		{
+			Size totalAvaliableSize = new Size();
+
+			foreach (UIElement child in this.InternalChildren)
+			{
+				child.Measure(availableSize);
+
+				totalAvaliableSize = new Size(Math.Max(totalAvaliableSize.Width, child.DesiredSize.Width),
+					Math.Max(totalAvaliableSize.Height, child.DesiredSize.Height));
+			}
+
+			return totalAvaliableSize;
+		}
+
+		# endregion
+
+		# region ArrangeOverride
+
+		protected override Size ArrangeOverride(Size finalSize)
+		{
+			foreach (UIElement child in this.InternalChildren)
+			{
+				if (child == this._TabbedWindowsContainer)
+				{
+					child.Arrange(new Rect(new Point(0, 0), finalSize));
+				}
+				else
+				{
+					child.Arrange(new Rect(new Point(0, 0), child.DesiredSize));
+				}
+			}
+
+			return finalSize;
+		}
+
+		# endregion
+
+		# region //ChangeWindowState
+
+		//internal void ChangeWindowState(ChildWindow window)
+		//{
+		//    if (window == null)
+		//    {
+		//        throw new ArgumentNullException("window");
+		//    }
+		//}
+
+		# endregion
+	}	 
+	*/
+
+
+    # endregion
+}

@@ -1,0 +1,326 @@
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:aw="clr-namespace:Assergs.Windows"
+	xmlns:awc="clr-namespace:Assergs.Windows.Controls"
+	> 
+    
+    <SolidColorBrush x:Key="ForegroundColorBrush" Color="{x:Static aw:ToolWindowDefaultStylePallet.ForegroundColorBrush}"/>
+        
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowBackground}" />
+	<SolidColorBrush x:Key="ToolWindowBorderBrush" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowBorder}" />
+	<SolidColorBrush x:Key="ToolWindowDisabledBorderBrush" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowDisabledBorder}" />
+	<SolidColorBrush x:Key="ToolWindowControlButtonForegroundBrush" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowControlButtonForeground}" />
+	<SolidColorBrush x:Key="ToolWindowSeparatorBarLightBrush" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowSeparatorBarLight}" />
+	<SolidColorBrush x:Key="ToolWindowSeparatorBarDarkBrush" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowSeparatorBarDark}" />
+
+	<LinearGradientBrush x:Key="ToolWindowTitleBarBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+		<GradientStop Offset="0" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar1}" />
+		<GradientStop Offset="0.1379" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar2}" />
+		<GradientStop Offset="0.1379" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar3}" />
+		<GradientStop Offset="0.2414" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar4}" />
+		<GradientStop Offset="0.2414" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar5}" />
+		<GradientStop Offset="0.8966" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar6}" />
+		<GradientStop Offset="0.8966" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar7}" />
+		<GradientStop Offset="0.9310" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar7}" />
+		<GradientStop Offset="0.9310" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar8}" />
+		<GradientStop Offset="0.9655" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar8}" />
+		<GradientStop Offset="0.9655" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowTitleBar9}" />
+	</LinearGradientBrush>  
+
+	<LinearGradientBrush x:Key="ToolWindowSideBorderBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+		<GradientStop Offset="0.33" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowSideBorderDark}" />
+		<GradientStop Offset="0.33" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowSideBorderLight}" />
+		<GradientStop Offset="0.66" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowSideBorderLight}" />
+		<GradientStop Offset="0.66" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowSideBorderDark}" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="ToolWindowLeftStatusBarGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+		<GradientStop Offset="0.01" Color="White" />
+		<GradientStop Offset="0.01" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowLeftStatusBar1}" />
+		<GradientStop Offset="0.1" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowLeftStatusBar2}" />
+		<GradientStop Offset="0.1" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowLeftStatusBar3}" />
+		<GradientStop Offset="0.35" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowLeftStatusBar3}" />
+		<GradientStop Offset="0.35" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowLeftStatusBar4}" />
+		<GradientStop Offset="0.9" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowLeftStatusBar5}" />
+		<GradientStop Offset="0.9" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowLeftStatusBar6}" />
+		<GradientStop Offset="0.95" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowLeftStatusBar6}" />
+		<GradientStop Offset="0.95" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowLeftStatusBar7}" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="ToolWindowRightStatusBarGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+		<GradientStop Offset="0" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowRightStatusBar1}" />
+		<GradientStop Offset="0.35" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowRightStatusBar2}" />
+		<GradientStop Offset="0.35" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowRightStatusBar3}" />
+		<GradientStop Offset="0.95" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowRightStatusBar4}" />
+		<GradientStop Offset="0.95" Color="{x:Static aw:ToolWindowDefaultStylePallet.ToolWindowRightStatusBar5}" />
+	</LinearGradientBrush>
+
+	<DrawingImage x:Key="ToolWindowCloseButtonImage">
+		<DrawingImage.Drawing>
+			<GeometryDrawing Brush="{StaticResource ToolWindowControlButtonForegroundBrush}"
+				Geometry="M0,0L3,0L4.5,2L6,0L9,0L6,3L6,5L9,8L6,8L4.5,6L3,8L0,8L3,5L3,3Z" />
+		</DrawingImage.Drawing>
+	</DrawingImage>
+
+	<!--<DrawingImage x:Key="ToolWindowDockButtonImage">
+		<DrawingImage.Drawing>
+			<GeometryDrawing Brush="{StaticResource ToolWindowControlButtonForegroundBrush}"
+				Geometry="M0,0L9,0L4.5,4Z" />
+		</DrawingImage.Drawing>
+	</DrawingImage>-->
+	
+	<DrawingImage x:Key="ToolWindowDockButtonImage">
+		<DrawingImage.Drawing>
+				<GeometryDrawing>
+					<GeometryDrawing.Pen>
+						<Pen Thickness="1.5" Brush="{StaticResource ToolWindowControlButtonForegroundBrush}"/>
+					</GeometryDrawing.Pen>
+					<GeometryDrawing.Geometry>
+						<PathGeometry Figures="M 0 4 L 0 0 L 4 0 M 0 0 L 6 6 M 10 0 L 10 10 L 0 10"/>
+						<!--<PathGeometry Figures="M 0 10 L 0 0 L 10 0 M 10 6 L 10 10 L 6 10 M 4 4 L 10 10"/>-->
+					</GeometryDrawing.Geometry>
+				</GeometryDrawing>
+		</DrawingImage.Drawing>
+	</DrawingImage>
+
+	<DrawingImage x:Key="ToolWindowMinimizeButtonImage">
+		<DrawingImage.Drawing>
+			<GeometryDrawing Brush="{StaticResource ToolWindowControlButtonForegroundBrush}"
+				Geometry="M0,7L6,7L6,9L0,9ZM0,0L9,0" />
+		</DrawingImage.Drawing>
+	</DrawingImage>
+
+	<SolidColorBrush x:Key="ToolWindowDisabledOverBrush" Color="#FFE5E5E5" Opacity="0.6" />
+
+	<Style x:Key="{x:Type aw:ToolWindow}" TargetType="{x:Type aw:ToolWindow}">
+		<Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}"/>
+		<Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+		<Setter Property="FontFamily" Value="Segoe UI"/>
+		<!--<Setter Property="FontSize" Value="11"/>-->
+		<Setter Property="MinWidth" Value="100"/>
+		<Setter Property="MinHeight" Value="53"/>
+		<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+		<Setter Property="Template"> 
+		<Setter.Value>
+			<ControlTemplate TargetType="{x:Type aw:ToolWindow}">
+
+				<Grid SnapsToDevicePixels="True">
+				
+					<Grid.RowDefinitions>
+						<RowDefinition Name="_MainRowDefinition1" Height="Auto"></RowDefinition>
+						<RowDefinition Name="_MainRowDefinition2" Height="*"></RowDefinition>
+						<RowDefinition Name="_MainRowDefinition3" Height="Auto"></RowDefinition>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Name="_MainColumnDefinition1" Width="Auto" />
+						<ColumnDefinition Name="_MainColumnDefinition2" Width="*" />
+						<ColumnDefinition Name="_MainColumnDefinition3" Width="Auto" />
+					</Grid.ColumnDefinitions>
+
+					<!-- Title Bar -->
+
+					<Border 
+						x:Name="_TitleBorder" Height="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="6,6,0,0"
+						BorderBrush="{StaticResource ToolWindowBorderBrush}" BorderThickness="1,1,1,0"
+						Background="{StaticResource ToolWindowTitleBarBrush}">
+					
+						<Border x:Name="_TitleInnerBorder" CornerRadius="5.5,5.5,0,0" Padding="3,3,3,2">
+							<DockPanel 
+								x:Name="PART_Dragger" 
+								Background="Transparent">
+								
+								<Image Name="_IconImage"
+									DockPanel.Dock="Left" Height="22" Width="22" Margin="2,2,0,0" Stretch="None"
+									Source="{TemplateBinding Icon}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+									
+									<awc:ImageButton
+										x:Name="PART_CloseButton"
+										Command="{x:Static aw:ToolWindow.CloseCommand}"
+										IsToolStyle="True" VerticalAlignment="Center" Height="22" Width="22"
+										DockPanel.Dock="Right" ImageSource="{StaticResource ToolWindowCloseButtonImage}" Focusable="False" />
+									<awc:ImageButton 
+										Name="_MaximizeButton" 
+										Command="{x:Static aw:ToolWindow.MaximizeCommand}"
+										IsToolStyle="True"
+										VerticalAlignment="Center" Height="22" Width="22"
+										DockPanel.Dock="Right" ImageSource="{StaticResource ToolWindowDockButtonImage}" />
+								<!--<awc:ImageButton  
+										VerticalAlignment="Center" Height="22" Width="22"
+										DockPanel.Dock="Right" ImageSource="{StaticResource ToolWindowMinimizeButtonImage}" />-->
+										<ContentPresenter
+											ContentSource="Header" HorizontalAlignment="Left"
+											VerticalAlignment="Center" Margin="5,0,0,0"/>
+
+							</DockPanel>
+						</Border>
+					</Border>
+
+					<!-- Left Border -->
+
+					<Border 
+						x:Name="_LeftBorder" Grid.Row="1" Grid.Column="0" Width="4" BorderBrush="{StaticResource ToolWindowBorderBrush}"
+						BorderThickness="1,0,0,0" Background="{StaticResource ToolWindowSideBorderBrush}">
+						
+						<Rectangle x:Name="_LeftBorderDisabledRectangle" />
+						
+					</Border>
+
+					<!-- Content -->
+
+					<!--<AdornerDecorator Grid.Row="1" Grid.Column="1">-->
+					<Grid Grid.Row="1" Grid.Column="1" Background="{TemplateBinding Background}" >
+						<ContentPresenter />
+					</Grid>
+					<!--</AdornerDecorator>-->
+
+					<!-- Rigth Border -->
+
+					<Border 
+						x:Name="_RightBorder" Grid.Row="1" Grid.Column="2" Width="4" BorderBrush="{StaticResource ToolWindowBorderBrush}"
+						BorderThickness="0,0,1,0" Background="{StaticResource ToolWindowSideBorderBrush}">
+						
+						<Rectangle x:Name="_RightBorderDisabledRectangle" />
+						
+					</Border>
+
+					<!-- Status Bars -->
+
+					<Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+
+						<Grid.RowDefinitions>
+							<RowDefinition Name="_StatusBottomRow" Height="Auto"></RowDefinition>
+							<RowDefinition Name="_NoStatusBottomRow" Height="0"></RowDefinition>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+
+						<!-- Left StatusBar-->
+
+						<Border x:Name="_LeftStatusBorder" 
+							Grid.Row="0"
+							Height="23" 
+							BorderBrush="{StaticResource ToolWindowBorderBrush}" 
+							BorderThickness="1,1,0,1" 
+							CornerRadius="0,0,0,6"
+							Background="{StaticResource ToolWindowLeftStatusBarGradientBrush}" 
+							Padding="6,0,6,0" Grid.Column="0">
+							
+							<ContentPresenter ContentSource="LeftStatusContent" VerticalAlignment="Center" />
+							
+						</Border>
+
+						<!-- Right StatusBar-->
+
+						<Border x:Name="_RightStatusBorder" 
+							Grid.Row="0"
+							Grid.Column="1"
+							Height="23" 
+							Padding="0,0,1,0" 
+							Background="{StaticResource ToolWindowRightStatusBarGradientBrush}" 
+							BorderBrush="{StaticResource ToolWindowBorderBrush}"
+							BorderThickness="0,1,1,1" 
+							CornerRadius="0,0,6,0">
+							
+							<DockPanel>
+								<Rectangle DockPanel.Dock="Left" Width="1" Fill="{StaticResource ToolWindowSeparatorBarLightBrush}"></Rectangle>
+								<Rectangle DockPanel.Dock="Left" Width="1" Fill="{StaticResource ToolWindowSeparatorBarDarkBrush}"></Rectangle>
+								<Rectangle DockPanel.Dock="Left" Width="1" Fill="{StaticResource ToolWindowSeparatorBarLightBrush}"></Rectangle>
+								<ResizeGrip Name="PART_ResizeGrip" DockPanel.Dock="Right" Focusable="False" />
+								<ContentPresenter ContentSource="RightStatusContent" VerticalAlignment="Center" />
+							</DockPanel>
+						</Border>
+						
+						<!-- _NoStatusBottomRow -->
+						<Border Name="_NoStatusBottomBorder"
+							Grid.Row="1"
+							Grid.ColumnSpan="2"
+							Height="6" 
+							BorderBrush="{StaticResource ToolWindowBorderBrush}" 
+							BorderThickness="1,0,1,1" 
+							CornerRadius="0,0,3,3"
+							Background="{StaticResource ToolWindowLeftStatusBarGradientBrush}">
+							
+							<ContentPresenter ContentSource="LeftStatusContent" />
+							
+						</Border>
+						
+					</Grid>
+
+				</Grid>
+        
+				<ControlTemplate.Triggers>
+
+					<Trigger Property="IsActive" Value="False">
+						<Setter TargetName="_TitleBorder" Property="BorderBrush" Value="{StaticResource ToolWindowDisabledBorderBrush}" />
+						<Setter TargetName="_LeftBorder" Property="BorderBrush" Value="{StaticResource ToolWindowDisabledBorderBrush}" />
+						<Setter TargetName="_RightBorder" Property="BorderBrush" Value="{StaticResource ToolWindowDisabledBorderBrush}" />
+						<Setter TargetName="_LeftStatusBorder" Property="BorderBrush" Value="{StaticResource ToolWindowDisabledBorderBrush}" />
+						<Setter TargetName="_RightStatusBorder" Property="BorderBrush" Value="{StaticResource ToolWindowDisabledBorderBrush}" />
+						<Setter TargetName="_TitleInnerBorder" Property="Background" Value="{StaticResource ToolWindowDisabledOverBrush}" />
+						<Setter TargetName="_LeftBorderDisabledRectangle" Property="Fill" Value="{StaticResource ToolWindowDisabledOverBrush}" />
+						<Setter TargetName="_RightBorderDisabledRectangle" Property="Fill" Value="{StaticResource ToolWindowDisabledOverBrush}" />
+						<Setter TargetName="_NoStatusBottomBorder" Property="BorderBrush" Value="{StaticResource ToolWindowDisabledBorderBrush}" />
+					</Trigger>
+					
+					<MultiTrigger>
+						<MultiTrigger.Conditions>
+							<Condition Property="IsMaximized" Value="True" />
+							<Condition Property="ShowStatusBar" Value="False" />
+						</MultiTrigger.Conditions>
+						<Setter TargetName="_MainRowDefinition1" Property="Height" Value="0"/>
+						<Setter TargetName="_MainRowDefinition3" Property="Height" Value="0"/>
+						<Setter TargetName="_MainColumnDefinition1" Property="Width" Value="0"/>
+						<Setter TargetName="_MainColumnDefinition3" Property="Width" Value="0"/>
+					</MultiTrigger>
+					
+					<MultiTrigger>
+					
+						<MultiTrigger.Conditions>
+							<Condition Property="IsMaximized" Value="True" />
+							<Condition Property="ShowStatusBar" Value="True" />
+						</MultiTrigger.Conditions>
+						
+						<Setter TargetName="_MainRowDefinition1" Property="Height" Value="0"/>
+						<Setter TargetName="_MainColumnDefinition1" Property="Width" Value="0"/>
+						<Setter TargetName="_MainColumnDefinition3" Property="Width" Value="0"/>
+						
+						<Setter TargetName="_LeftStatusBorder" Property="BorderThickness" Value="0"/>
+						<Setter TargetName="_LeftStatusBorder" Property="CornerRadius" Value="0"/>
+						
+						<Setter TargetName="_RightStatusBorder" Property="BorderThickness" Value="0"/>
+						<Setter TargetName="_RightStatusBorder" Property="CornerRadius" Value="0"/>
+						
+						<Setter TargetName="PART_ResizeGrip" Property="Visibility" Value="Collapsed"/>
+																		
+					</MultiTrigger>
+					
+					<Trigger Property="IsModal" Value="True">
+						<Setter TargetName="_MaximizeButton" Property="Visibility" Value="Collapsed"/>
+					</Trigger>
+					
+					<Trigger Property="ShowCloseButton" Value="False">
+						<Setter TargetName="PART_CloseButton" Property="Visibility" Value="Collapsed"/>
+					</Trigger>
+																								
+					<Trigger Property="ShowStatusBar" Value="False">
+						<Setter TargetName="_StatusBottomRow" Property="Height" Value="0"/>
+						<Setter TargetName="_NoStatusBottomRow" Property="Height" Value="Auto"/>
+					</Trigger>
+					
+					<Trigger Property="CanResize" Value="False">
+						<Setter TargetName="PART_ResizeGrip" Property="Visibility" Value="Hidden"/>
+					</Trigger>
+					
+					<Trigger Property="Icon" Value="{x:Null}">
+						<Setter TargetName="_IconImage" Property="Visibility" Value="Collapsed"/>
+					</Trigger>
+										
+				</ControlTemplate.Triggers>
+			</ControlTemplate>
+		</Setter.Value>
+	</Setter>
+  </Style>
+</ResourceDictionary>

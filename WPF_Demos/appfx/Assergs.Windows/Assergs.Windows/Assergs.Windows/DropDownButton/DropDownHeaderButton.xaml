@@ -1,0 +1,329 @@
+﻿<UserControl x:Class="Assergs.Windows.Controls.DropDownHeaderButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:aw="clr-namespace:Assergs.Windows"
+	xmlns:awc="clr-namespace:Assergs.Windows.Controls"
+	MinHeight="20"
+	MinWidth="20"> 
+    
+    <UserControl.Resources>
+    
+        <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}"> 
+			<ContentPresenter />
+        </ControlTemplate>
+        
+        <ControlTemplate x:Key="ToggleButtonTemplate" TargetType="ToggleButton">
+			<ContentPresenter />			
+		</ControlTemplate>
+		
+		<SolidColorBrush x:Key="ForegroundColorBrush" Color="{x:Static aw:DropDownHeaderButtonPallet.ForegroundColor}"/>
+		<SolidColorBrush x:Key="NormalBorderBrush" Color="{x:Static aw:DropDownHeaderButtonPallet.NormalBorder}"></SolidColorBrush>
+		<SolidColorBrush x:Key="LightBorderBrush" Color="{x:Static aw:DropDownHeaderButtonPallet.LightBorder}"/>
+		<SolidColorBrush x:Key="PlusLightBorderBrush" Color="{x:Static aw:DropDownHeaderButtonPallet.PlusLightBorder}"/>
+		<SolidColorBrush x:Key="DisabledBorderBrush" Color="{x:Static aw:DropDownHeaderButtonPallet.DisabledBorder}"/>
+		<SolidColorBrush x:Key="DisabledForegroundBrush" Color="{x:Static aw:DropDownHeaderButtonPallet.DisabledForeground}"/>
+	    
+		<LinearGradientBrush x:Key="NormalBackGroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+			<GradientStop Color="{x:Static aw:DropDownHeaderButtonPallet.NormalBackGround1}" Offset="0"/>
+			<GradientStop Color="{x:Static aw:DropDownHeaderButtonPallet.NormalBackGround2}" Offset="0.4"/>
+			<GradientStop Color="{x:Static aw:DropDownHeaderButtonPallet.NormalBackGround3}" Offset="0.4"/>
+			<GradientStop Color="{x:Static aw:DropDownHeaderButtonPallet.NormalBackGround4}" Offset="1"/>
+		</LinearGradientBrush> 
+	    
+		<LinearGradientBrush x:Key="LightBackGroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+			<GradientStop Offset="0" Color="{x:Static aw:DropDownHeaderButtonPallet.DefaultControlMouseOver1}" />
+			<GradientStop Offset="0.4" Color="{x:Static aw:DropDownHeaderButtonPallet.DefaultControlMouseOver2}" />
+			<GradientStop Offset="0.4" Color="{x:Static aw:DropDownHeaderButtonPallet.DefaultControlMouseOver3}" />
+			<GradientStop Offset="1" Color="{x:Static aw:DropDownHeaderButtonPallet.DefaultControlMouseOver4}" />
+		</LinearGradientBrush>
+	    
+		<LinearGradientBrush x:Key="PlusLightBackGroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+			<GradientStop Offset="0" Color="{x:Static aw:DropDownHeaderButtonPallet.DefaultControlPressed1}" />
+			<GradientStop Offset="0.1" Color="{x:Static aw:DropDownHeaderButtonPallet.DefaultControlPressed2}" />
+			<GradientStop Offset="0.4" Color="{x:Static aw:DropDownHeaderButtonPallet.DefaultControlPressed3}" />
+			<GradientStop Offset="0.4" Color="{x:Static aw:DropDownHeaderButtonPallet.DefaultControlPressed4}" />
+			<GradientStop Offset="1" Color="{x:Static aw:DropDownHeaderButtonPallet.DefaultControlPressed5}" />
+		</LinearGradientBrush>
+	    
+		<LinearGradientBrush x:Key="DisableBackGroundBrush" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="{x:Static aw:DropDownHeaderButtonPallet.DisableBackGround1}"></GradientStop>
+			<GradientStop Color="{x:Static aw:DropDownHeaderButtonPallet.DisableBackGround2}"></GradientStop>
+		</LinearGradientBrush>
+		
+		<LinearGradientBrush x:Key="LightButtonBackGroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+			<GradientStop Offset="0" Color="{x:Static aw:DropDownHeaderButtonPallet.LightButtonBackGroundBrush1}" />
+			<GradientStop Offset="0.5" Color="{x:Static aw:DropDownHeaderButtonPallet.LightButtonBackGroundBrush2}" />
+			<GradientStop Offset="1" Color="{x:Static aw:DropDownHeaderButtonPallet.LightButtonBackGroundBrush1}" />
+		</LinearGradientBrush>
+		
+    </UserControl.Resources>
+        
+    <UserControl.Template>
+		<ControlTemplate TargetType="{x:Type awc:DropDownHeaderButton}">
+			<Border Name="_MainBorder"
+				BorderThickness="1"
+				CornerRadius="2">
+				
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Name="RowDefinition0" Height="*" />
+						<RowDefinition Name="RowDefinition1" Height="0" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Name="ColumnDefinition0" Width="Auto" />
+						<ColumnDefinition Name="ColumnDefinition1" Width="Auto" />
+					</Grid.ColumnDefinitions>
+					
+					<Button
+						Name="PART_Button"
+						Grid.Row="0"
+						Grid.Column="0"
+						MinWidth="10"
+						MinHeight="10"
+						Foreground="{TemplateBinding Foreground}"
+						Template="{StaticResource ButtonTemplate}">
+						
+						<Border 
+							Name="_MainButtonBorder"
+							CornerRadius="2">
+							
+							<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+								
+								<ContentPresenter Content="{TemplateBinding Content}"
+									Name="ButtonContent" 
+									Margin="1" />
+									
+								<TextBlock Margin="2,0,4,0"
+									Name="_ButtonTextContainer" 
+									TextWrapping="Wrap" 
+									Text="{TemplateBinding Text}" 
+									Foreground="{TemplateBinding Foreground}"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Center"
+									TextAlignment="Center"/>
+							
+							</StackPanel>
+						
+						</Border>
+						
+					</Button>
+					
+					<ToggleButton 
+						Name="PART_ToggleButton" 
+						Grid.Row="0"
+						Grid.Column="1"
+						IsChecked="{Binding Path=IsToggleButtonChecked,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+						Template="{StaticResource ToggleButtonTemplate}">
+						
+						<Grid>
+						
+							<Grid.RowDefinitions>
+								<RowDefinition Name="ToggleButtonRowDefinition0" Height="*" />
+								<RowDefinition Name="ToggleButtonRowDefinition1" Height="0" />
+								<RowDefinition Name="ToggleButtonRowDefinition2" Height="0" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Name="ToggleButtonColumnDefinition0" Width="0" />
+								<ColumnDefinition Name="ToggleButtonColumnDefinition1" Width="0" />
+								<ColumnDefinition Name="ToggleButtonColumnDefinition2" Width="Auto" />
+							</Grid.ColumnDefinitions>
+																			
+							<Border 
+								Name="_MainToggleButtonBorder"
+								Grid.Row="0"
+								Grid.Column="0"
+								Grid.ColumnSpan="3"
+								CornerRadius="2"
+								Background="Transparent"
+								BorderThickness="0"/>
+								
+							<ContentPresenter 
+								Name="_ToggleButtonContent" 
+								Visibility="Collapsed"
+								Content="{TemplateBinding Content}"
+								Margin="1"
+								Grid.Row="0"
+								Grid.Column="0" />		
+								
+							<TextBlock 
+								Name="_ToggleButtonTextContent" 
+								Grid.Row="0"
+								Grid.Column="1"
+								Visibility="Collapsed"
+								TextWrapping="Wrap" 
+								Foreground="{TemplateBinding Foreground}"
+								Text="{TemplateBinding Text}" 
+								TextAlignment="Center"
+								Padding="2"/>
+								
+							<Path
+								Name="_ToggleButtonArrow"
+								Grid.Row="0"
+								Grid.Column="2"
+								Fill="{TemplateBinding Foreground}"
+								Margin="2"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Data="M 0 0 L 3 3 L 6 0 Z"/>
+						</Grid>
+						
+					</ToggleButton>
+				
+				</Grid>
+				
+			</Border> 
+			
+			<ControlTemplate.Triggers>
+				
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter TargetName="_MainBorder" Property="BorderBrush" Value="{StaticResource LightBorderBrush}" />
+					<Setter TargetName="_MainButtonBorder" Property="Background" Value="{StaticResource LightButtonBackGroundBrush}" />
+					
+					<Setter TargetName="_MainToggleButtonBorder" Property="BorderBrush" Value="{StaticResource LightBorderBrush}" />
+					<Setter TargetName="_MainToggleButtonBorder" Property="Background" Value="{StaticResource LightButtonBackGroundBrush}" />
+										
+				</Trigger>
+				
+				<MultiTrigger>
+					<MultiTrigger.Conditions>
+						<Condition Property="DropDownButtonMode" Value="ToggleButtonOnly" />
+						<Condition Property="IsMouseOver" Value="True" />
+					</MultiTrigger.Conditions>
+					<Setter TargetName="_MainToggleButtonBorder" Property="Background" Value="{StaticResource LightBackGroundBrush}" />
+				</MultiTrigger>
+				
+				<Trigger SourceName="PART_ToggleButton" Property="IsChecked" Value="True">
+					<Setter TargetName="_MainBorder" Property="BorderBrush" Value="{StaticResource LightBorderBrush}" />
+					<Setter TargetName="_MainButtonBorder" Property="Background" Value="{StaticResource LightButtonBackGroundBrush}" />
+					<Setter TargetName="_MainToggleButtonBorder" Property="BorderBrush" Value="{StaticResource PlusLightBackGroundBrush}" />
+					<Setter TargetName="_MainToggleButtonBorder" Property="Background" Value="{StaticResource PlusLightBackGroundBrush}" />
+				</Trigger>
+				
+				<MultiTrigger>
+					<MultiTrigger.Conditions>
+						<Condition Property="Orientation" Value="Vertical" />
+						<Condition Property="IsMouseOver" Value="True" />
+					</MultiTrigger.Conditions>
+					<Setter TargetName="_MainToggleButtonBorder" Property="BorderThickness" Value="0,1,0,0" />
+				</MultiTrigger>
+				
+				<MultiTrigger>
+					<MultiTrigger.Conditions>
+						<Condition Property="Orientation" Value="Horizontal" />
+						<Condition Property="IsMouseOver" Value="True" />
+					</MultiTrigger.Conditions>
+					<Setter TargetName="_MainToggleButtonBorder" Property="BorderThickness" Value="1,0,0,0" />
+				</MultiTrigger>
+				
+				<Trigger SourceName="PART_Button" Property="IsMouseOver" Value="True">
+					<Setter TargetName="_MainButtonBorder" Property="Background" Value="{StaticResource LightBackGroundBrush}" />
+				</Trigger>		
+											
+				<Trigger SourceName="PART_Button" Property="IsPressed" Value="True">
+					<Setter TargetName="_MainButtonBorder" Property="Background" Value="{StaticResource PlusLightBackGroundBrush}" />
+				</Trigger>
+				
+				<Trigger SourceName="PART_ToggleButton" Property="IsMouseOver" Value="True">
+					<Setter TargetName="_MainToggleButtonBorder" Property="Background" Value="{StaticResource LightBackGroundBrush}" />
+				</Trigger>		
+											
+				<Trigger SourceName="PART_ToggleButton" Property="IsPressed" Value="True">
+					<Setter TargetName="_MainToggleButtonBorder" Property="Background" Value="{StaticResource PlusLightBackGroundBrush}" />
+				</Trigger>
+				
+				<Trigger Property="DropDownButtonMode" Value="ToggleButtonOnly">
+					<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+					<Setter TargetName="_ToggleButtonContent" Property="Visibility" Value="Visible" />
+				</Trigger>
+				
+				<MultiTrigger>
+					<MultiTrigger.Conditions>
+						<Condition Property="DropDownButtonMode" Value="ButtonAndToggleButton" />
+						<Condition Property="Orientation" Value="Vertical" />
+					</MultiTrigger.Conditions>
+					<!-- Button Arrange -->
+					<Setter TargetName="_ButtonTextContainer" Property="Visibility" Value="Collapsed" />
+					<Setter TargetName="_ToggleButtonTextContent" Property="Visibility" Value="Visible" />
+					<!-- Control Grid Arrange -->
+					<Setter TargetName="PART_ToggleButton" Property="Grid.Row" Value="1" />
+					<Setter TargetName="PART_ToggleButton" Property="Grid.Column" Value="0" />
+					<Setter TargetName="RowDefinition0" Property="Height" Value="*" />
+					<Setter TargetName="RowDefinition1" Property="Height" Value="Auto" />
+					<Setter TargetName="ColumnDefinition0" Property="Width" Value="*" />
+					<Setter TargetName="ColumnDefinition1" Property="Width" Value="0" />
+					<!-- ToggleButton Components Arrange -->
+					<Setter TargetName="_MainToggleButtonBorder" Property="Grid.ColumnSpan" Value="1" />
+					<Setter TargetName="_MainToggleButtonBorder" Property="Grid.RowSpan" Value="3" />
+					<Setter TargetName="_ToggleButtonTextContent" Property="Grid.Row" Value="1" />
+					<Setter TargetName="_ToggleButtonTextContent" Property="Grid.Column" Value="0" />
+					<Setter TargetName="_ToggleButtonArrow" Property="Grid.Row" Value="2" />
+					<Setter TargetName="_ToggleButtonArrow" Property="Grid.Column" Value="0" />
+					<!-- ToggleButton Grid Arrange -->
+					<Setter TargetName="ToggleButtonRowDefinition0" Property="Height" Value="0" />
+					<Setter TargetName="ToggleButtonRowDefinition1" Property="Height" Value="Auto" />
+					<Setter TargetName="ToggleButtonRowDefinition2" Property="Height" Value="Auto" />
+					<Setter TargetName="ToggleButtonColumnDefinition0" Property="Width" Value="*" />
+					<Setter TargetName="ToggleButtonColumnDefinition1" Property="Width" Value="0" />
+					<Setter TargetName="ToggleButtonColumnDefinition2" Property="Width" Value="0" />
+				</MultiTrigger> 
+				
+				<MultiTrigger>
+					<MultiTrigger.Conditions>
+						<Condition Property="DropDownButtonMode" Value="ToggleButtonOnly" />
+						<Condition Property="Orientation" Value="Horizontal" />
+					</MultiTrigger.Conditions>
+					<!-- Button Arrange -->
+					<Setter TargetName="_ButtonTextContainer" Property="Visibility" Value="Collapsed" />
+					<Setter TargetName="_ToggleButtonTextContent" Property="Visibility" Value="Visible" />
+					<!-- Control Grid Arrange -->
+					<Setter TargetName="RowDefinition0" Property="Height" Value="*" />
+					<Setter TargetName="RowDefinition1" Property="Height" Value="0" />
+					<Setter TargetName="ColumnDefinition0" Property="Width" Value="0" />
+					<Setter TargetName="ColumnDefinition1" Property="Width" Value="*" />
+					<!-- ToggleButton Grid Arrange -->
+					<Setter TargetName="ToggleButtonRowDefinition0" Property="Height" Value="*" />
+					<Setter TargetName="ToggleButtonRowDefinition1" Property="Height" Value="0" />
+					<Setter TargetName="ToggleButtonRowDefinition2" Property="Height" Value="0" />
+					<Setter TargetName="ToggleButtonColumnDefinition0" Property="Width" Value="*" />
+					<Setter TargetName="ToggleButtonColumnDefinition1" Property="Width" Value="Auto" />
+					<Setter TargetName="ToggleButtonColumnDefinition2" Property="Width" Value="Auto" />
+					<Setter TargetName="_MainToggleButtonBorder" Property="BorderThickness" Value="0" />
+				</MultiTrigger>
+				
+				<MultiTrigger>
+					<MultiTrigger.Conditions>
+						<Condition Property="DropDownButtonMode" Value="ToggleButtonOnly" />
+						<Condition Property="Orientation" Value="Vertical" />
+					</MultiTrigger.Conditions>
+					<Setter TargetName="PART_ToggleButton" Property="Grid.Row" Value="1" />
+					<Setter TargetName="PART_ToggleButton" Property="Grid.Column" Value="0" />
+					<!-- Button Arrange -->
+					<Setter TargetName="_ButtonTextContainer" Property="Visibility" Value="Collapsed" />
+					<Setter TargetName="_ToggleButtonTextContent" Property="Visibility" Value="Visible" />
+					<!-- Control Grid Arrange -->
+					<Setter TargetName="RowDefinition0" Property="Height" Value="0" />
+					<Setter TargetName="RowDefinition1" Property="Height" Value="*" />
+					<Setter TargetName="ColumnDefinition0" Property="Width" Value="*" />
+					<Setter TargetName="ColumnDefinition1" Property="Width" Value="0" />
+					<!-- ToggleButton Components Arrange -->
+					<Setter TargetName="_MainToggleButtonBorder" Property="BorderThickness" Value="0" />
+					<Setter TargetName="_MainToggleButtonBorder" Property="Grid.ColumnSpan" Value="1" />
+					<Setter TargetName="_MainToggleButtonBorder" Property="Grid.RowSpan" Value="3" />
+					<Setter TargetName="_ToggleButtonTextContent" Property="Grid.Row" Value="1" />
+					<Setter TargetName="_ToggleButtonTextContent" Property="Grid.Column" Value="0" />
+					<Setter TargetName="_ToggleButtonArrow" Property="Grid.Row" Value="2" />
+					<Setter TargetName="_ToggleButtonArrow" Property="Grid.Column" Value="0" />
+					<!-- ToggleButton Grid Arrange -->
+					<Setter TargetName="ToggleButtonRowDefinition0" Property="Height" Value="*" />
+					<Setter TargetName="ToggleButtonRowDefinition1" Property="Height" Value="Auto" />
+					<Setter TargetName="ToggleButtonRowDefinition2" Property="Height" Value="Auto" />
+					<Setter TargetName="ToggleButtonColumnDefinition0" Property="Width" Value="*" />
+					<Setter TargetName="ToggleButtonColumnDefinition1" Property="Width" Value="0" />
+					<Setter TargetName="ToggleButtonColumnDefinition2" Property="Width" Value="0" />
+				</MultiTrigger>
+				
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+    </UserControl.Template>
+    
+</UserControl>

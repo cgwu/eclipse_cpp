@@ -1,0 +1,56 @@
+﻿<aw:ToolWindow
+	x:Class="Assergs.Windows.Tests.MessageBoxSamples"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:aw="clr-namespace:Assergs.Windows;assembly=Assergs.Windows"
+	xmlns:awc="clr-namespace:Assergs.Windows.Controls;assembly=Assergs.Windows"
+	Header="MessageBox Samples"
+	Icon="Resources/Icons/16x16/Darf16.png"
+	Width="500"
+	Style="{DynamicResource {x:Type aw:ToolWindow}}"
+	>	
+
+	<Grid>
+	
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+						
+		<awc:HeaderedPanel Grid.Row="0" Header="Configuration" Margin="4,4,4,2">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="200"/>
+				</Grid.ColumnDefinitions>
+			
+				<TextBlock Margin="2" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Caption" />
+				<TextBlock Margin="2" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="MessageBoxButton" />
+				<TextBlock Margin="2" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Text="MessageBoxImage" />
+				<TextBlock Margin="2" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Text="MessageBoxResult" />
+				
+				<TextBox  Margin="2" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Name="CaptionTextBox" />
+				<ComboBox Margin="2" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Name="MessageBoxButtonComboBox" />
+				<ComboBox Margin="2" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Name="MessageBoxImageComboBox" />
+				<ComboBox Margin="2" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Name="MessageBoxResultComboBox" />
+			
+			</Grid>
+		</awc:HeaderedPanel>
+		
+		<awc:HeaderedPanel Grid.Row="1" Header="MessageBoxText" Margin="4,2,4,4">
+			<TextBox MinHeight="50" TextWrapping="Wrap" Margin="2" Name="MessageBoxText" />
+		</awc:HeaderedPanel>
+		
+		<Button Margin="4" Grid.Row="2" HorizontalAlignment="Right" Width="120" Name="ShowButton" Click="ShowButton_Click" Content="Show Message"></Button>
+
+	</Grid>
+
+</aw:ToolWindow>

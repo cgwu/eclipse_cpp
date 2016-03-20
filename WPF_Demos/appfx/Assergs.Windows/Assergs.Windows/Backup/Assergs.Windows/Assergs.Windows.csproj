@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.20706</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C2D718A-937D-4AA9-B69F-0B8EB1E6A5C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Assergs.Windows</RootNamespace>
+    <AssemblyName>Assergs.Windows</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;ORCAS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Controls\SearchableComboBox.cs" />
+    <Compile Include="Controls\SearchableComboBoxPallet.cs" />
+    <Compile Include="Controls\MaskTextBox.cs" />
+    <Compile Include="Controls\UnderlineSeparatorPallet.cs" />
+    <Compile Include="Controls\UnderlineSeparator.cs" />
+    <Compile Include="Controls\ReflectedButton.cs" />
+    <Compile Include="Controls\Delegates.cs" />
+    <Compile Include="DropDownButton\DropDownMenuItemPallet.cs" />
+    <Compile Include="DropDownButton\DropDownButton.cs">
+    </Compile>
+    <Compile Include="DropDownButton\DropDownHeaderButton.xaml.cs">
+      <DependentUpon>DropDownHeaderButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HeaderedPanel.cs" />
+    <Compile Include="Controls\HeaderedPanelPallet.cs" />
+    <Compile Include="Controls\ImageButton.cs" />
+    <Compile Include="Controls\ImageButtonDefaultStylePallet.cs" />
+    <Compile Include="DropDownButton\DropDownHeaderButtonPallet.cs" />
+    <Compile Include="DropDownButton\DropDownMenuItem.cs" />
+    <Compile Include="ListViewEditBox\EditBox.cs" />
+    <Compile Include="ListViewEditBox\EditBoxAdorner.cs" />
+    <Compile Include="Media\Coloration.cs" />
+    <Compile Include="Media\ColorType.cs" />
+    <Compile Include="Media\ConvertColor.cs" />
+    <Compile Include="Media\HSXColor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ribbon\Ribbon.cs" />
+    <Compile Include="Ribbon\RibbonDefaultStylePallet.cs" />
+    <Compile Include="Ribbon\RibbonPanel.cs" />
+    <Compile Include="Ribbon\RibbonPanelDefaultStylePallet.cs" />
+    <Compile Include="Ribbon\RibbonTabItem.cs" />
+    <Compile Include="Ribbon\RibbonTabItemChrome.cs" />
+    <Compile Include="Ribbon\RibbonTabItemChromeDefaultStylePallet.cs" />
+    <Compile Include="Ribbon\RibbonTabItemDefaultStylePallet.cs" />
+    <Compile Include="themes\ButtonPallet.cs" />
+    <Compile Include="themes\CheckBoxPallet.cs" />
+    <Compile Include="themes\ComboBoxPallet.cs" />
+    <Compile Include="themes\ListViewPallet.cs" />
+    <Compile Include="themes\ExpanderPallet.cs" />
+    <Compile Include="themes\GroupBoxPallet.cs" />
+    <Compile Include="themes\ListBoxItemPallet.cs" />
+    <Compile Include="themes\ListBoxPallet.cs" />
+    <Compile Include="themes\OfficePallet.cs" />
+    <Compile Include="themes\OfficeColorPallet.cs" />
+    <Compile Include="themes\OfficeColors.cs" />
+    <Compile Include="themes\OfficeStyle.xaml.cs">
+      <DependentUpon>OfficeStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="themes\ProgressBarHighlightConverter.cs" />
+    <Compile Include="themes\ProgressBarPallet.cs" />
+    <Compile Include="themes\RadioButtonPallet.cs" />
+    <Compile Include="themes\ResizeGripStylePallet.cs" />
+    <Compile Include="themes\ScrollBarPallet.cs" />
+    <Compile Include="themes\ScrollViewerPallet.cs" />
+    <Compile Include="themes\SliderPallet.cs" />
+    <Compile Include="themes\StatusBarStylePallet.cs" />
+    <Compile Include="themes\TabControlPallet.cs" />
+    <Compile Include="themes\TextBlockStyle.xaml.cs">
+      <DependentUpon>TextBlockStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="themes\TextBoxPallet.cs" />
+    <None Include="Windows\_ToolWindow.cs.old" />
+    <Compile Include="Windows\ToolWindowDockPanelPallet.cs" />
+    <Compile Include="Windows\MessageBox.cs" />
+    <Compile Include="Windows\ToolWindowTabItemContainerPallet.cs" />
+    <Compile Include="Windows\ToolWindowTabItemContainer.cs" />
+    <Compile Include="Windows\ToolWindowTabItemContainerPanel.cs" />
+    <Compile Include="Windows\ToolWindowPanelContainer.cs" />
+    <Compile Include="Windows\ToolWindow.cs" />
+    <Compile Include="Windows\ToolWindowDefaultStylePallet.cs" />
+    <None Include="Windows\_ToolWindowDockPanel.cs.old" />
+    <Compile Include="Windows\ToolWindowModal.cs" />
+    <Compile Include="Windows\ToolWindowDockPanel.xaml.cs">
+      <DependentUpon>ToolWindowDockPanel.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\SearchableComboBoxDefaultStyle.xaml" />
+    <Page Include="Controls\UnderlineSeparatorDefaultStyle.xaml" />
+    <Page Include="Controls\ReflectedButtonDefaultStyle.xaml" />
+    <Page Include="DropDownButton\DropDownButtonDefaultStyle.xaml" />
+    <Page Include="DropDownButton\DropDownHeaderButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HeaderedPanelDefaultStyle.xaml" />
+    <Page Include="Controls\ImageButtonDefaultStyle.xaml" />
+    <Page Include="Ribbon\RibbonDefaultStyle.xaml" />
+    <Page Include="Ribbon\RibbonPanelDefaultStyle.xaml" />
+    <Page Include="Ribbon\RibbonTabItemChromeDefaultStyle.xaml" />
+    <Page Include="Ribbon\RibbonTabItemDefaultStyle.xaml" />
+    <Page Include="themes\Button.xaml" />
+    <Page Include="themes\CheckBox.xaml" />
+    <Page Include="themes\ComboBox.xaml" />
+    <Page Include="DropDownButton\DropDownMenuItemDefaultStyle.xaml" />
+    <Page Include="themes\EditBox.xaml" />
+    <Page Include="themes\ListView.xaml" />
+    <Page Include="themes\TextBlockStyle.xaml" />
+    <Page Include="Windows\ToolWindowDockPanelDefaultStyle.xaml" />
+    <Page Include="themes\Expander.xaml" />
+    <Page Include="themes\generic.xaml" />
+    <Page Include="themes\GroupBox.xaml" />
+    <Page Include="themes\ListBox.xaml" />
+    <Page Include="themes\ListBoxItem.xaml" />
+    <Page Include="themes\OfficeStyle.xaml" />
+    <Page Include="themes\ProgressBar.xaml" />
+    <Page Include="themes\RadioButton.xaml" />
+    <Page Include="themes\ResizeGripStyle.xaml" />
+    <Page Include="themes\ScrollBar.xaml" />
+    <Page Include="themes\ScrollViewer.xaml" />
+    <Page Include="themes\Slider.xaml" />
+    <Page Include="themes\StatusBarStyle.xaml" />
+    <Page Include="themes\TabControl.xaml" />
+    <Page Include="themes\TextBox.xaml" />
+    <Page Include="Windows\ToolWindowTabItemContainerDefaultStyle.xaml" />
+    <Page Include="Windows\ToolWindowDefaultStyle.xaml" />
+    <Page Include="Windows\ToolWindowDockPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\error48.png" />
+    <Resource Include="resources\Exclamation48.png" />
+    <Resource Include="resources\Information48.png" />
+    <Resource Include="resources\Question48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\Magnifier16.png" />
+  </ItemGroup>
+</Project>

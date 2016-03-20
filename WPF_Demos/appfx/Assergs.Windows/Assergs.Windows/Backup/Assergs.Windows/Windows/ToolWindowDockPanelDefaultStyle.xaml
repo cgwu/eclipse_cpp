@@ -1,0 +1,14 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:awc="clr-namespace:Assergs.Windows.Controls"
+    xmlns:aw="clr-namespace:Assergs.Windows"
+	>
+    
+    <SolidColorBrush x:Key="TabsBackgroundBrush" Color="{x:Static aw:ToolWindowDockPanelPallet.TabsBackground}" />
+    
+    <Style x:Key="{x:Type aw:ToolWindowDockPanel}" TargetType="{x:Type aw:ToolWindowDockPanel}">
+       <Setter Property="WindowsTabsBackground" Value="{StaticResource TabsBackgroundBrush}" />
+    </Style>
+
+</ResourceDictionary>
