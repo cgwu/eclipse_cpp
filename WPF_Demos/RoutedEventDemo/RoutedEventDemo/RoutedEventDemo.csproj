@@ -69,11 +69,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FrmCtrls.xaml.cs">
+      <DependentUpon>FrmCtrls.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmThemeChange.xaml.cs">
       <DependentUpon>FrmThemeChange.xaml</DependentUpon>
     </Compile>
     <Compile Include="ThemeSwitcherOld.cs" />
     <Compile Include="ThemeSwitcher.cs" />
+    <Page Include="FrmCtrls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

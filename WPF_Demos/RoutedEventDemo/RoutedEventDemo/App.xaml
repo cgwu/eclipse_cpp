@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:RoutedEventDemo"
              StartupUri="FrmThemeChange.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="WPF_Themes/ExpressionLight.xaml"/>
+        <!--<ResourceDictionary Source="WPF_Themes/ExpressionLight.xaml"/>-->
+        <ResourceDictionary Source="WPF_Themes/ShinyRed.xaml"/>
     </Application.Resources>
 </Application>
