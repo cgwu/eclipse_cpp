@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloIndigo", "HelloIndigo\HelloIndigo.csproj", "{436F8957-2080-448B-A6B2-A9C50760B5AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{747BD6E1-E9A1-4AFF-AEFE-F4815F62BC91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{4727F7C2-7A8D-4643-9D51-384B13A417C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capture", "Capture", "{0F41DC45-621E-4E68-88F3-6ECBF5CC604C}"
+	ProjectSection(SolutionItems) = preProject
+		BasicHttpBinding_Capture.txt = BasicHttpBinding_Capture.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{436F8957-2080-448B-A6B2-A9C50760B5AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436F8957-2080-448B-A6B2-A9C50760B5AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436F8957-2080-448B-A6B2-A9C50760B5AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436F8957-2080-448B-A6B2-A9C50760B5AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{747BD6E1-E9A1-4AFF-AEFE-F4815F62BC91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{747BD6E1-E9A1-4AFF-AEFE-F4815F62BC91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{747BD6E1-E9A1-4AFF-AEFE-F4815F62BC91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{747BD6E1-E9A1-4AFF-AEFE-F4815F62BC91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4727F7C2-7A8D-4643-9D51-384B13A417C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4727F7C2-7A8D-4643-9D51-384B13A417C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4727F7C2-7A8D-4643-9D51-384B13A417C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4727F7C2-7A8D-4643-9D51-384B13A417C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
