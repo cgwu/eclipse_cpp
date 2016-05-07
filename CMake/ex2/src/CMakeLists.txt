@@ -1,5 +1,6 @@
 
 cmake_minimum_required(VERSION 2.6)
+set(CMAKE_VERBOSE_MAKEFILE ON)
 project(ex2)
 add_executable(ex2 main.c calc.c)
 
