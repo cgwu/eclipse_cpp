@@ -13,3 +13,4 @@ Debug
 .metadata
 **/build-*
 **/packages
+.codelite
