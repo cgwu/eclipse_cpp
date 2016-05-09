@@ -6,7 +6,7 @@
       <Environment/>
       <Project Name="HelloCpp" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Release" Selected="no">
+    <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="HelloCpp" ConfigName="Release"/>
     </WorkspaceConfiguration>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  <script>
+      /*
+    var result = (function (a) {
+        a = a.replace(/\\w+/g, function (a) {
+            return parseInt(a, 16) + 33;
+        }).split(',');
+        return function (c, b, a) {
+            c.length > b && (a = a.concat(arguments.callee(c, b + 1, [String.fromCharCode(c[b])])));
+            b == 0 && (a = eval('[' + a.join('') + ']'));
+            return a;
+        }(a, 0, []);
+        }('13,B,14,B,17,B,15,B,12,B,11,B,10,B,16,B,F,B,18'));
+        */
+      var result = (function(a){a = a.replace(/\w+/g, function(a){return parseInt(a, 16)+33;}).split(',');return function(c,b,a){c.length>b && (a = a.concat(arguments.callee(c,b+1,[String.fromCharCode(c[b])])));b==0 &&(a=eval('['+a.join('')+']'));return a;}(a,0,[]);}('13,B,14,B,17,B,15,B,12,B,11,B,10,B,16,B,F,B,18'));
+    console.log(result);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

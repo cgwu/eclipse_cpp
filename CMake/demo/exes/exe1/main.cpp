@@ -1,10 +1,16 @@
 #include "../../dlls/dll1/dll1.h"
 #include <iostream>
 #include <stdio.h>
+using namespace std;
+
 int main()
 {
     dll1 lDll1;
-    std::cout << lDll1.getText();
+    int a = 0;
+    ++a;
+    cout << "a=" << a << endl;
+    std::cout << lDll1.getText()<< endl;
+    cout << "Press ENTER to exit." << endl;
 	getchar();
     return 0;
 }
