@@ -16,7 +16,13 @@ SOURCES += main.cpp \
     main_btn.cpp \
     main_enter_age.cpp \
     finddialog.cpp \
-    main_find_dialog.cpp
+    main_find_dialog.cpp \
+    gotocelldialog.cpp \
+    main_go_to_cell.cpp
 
 HEADERS  += \
-    finddialog.h
+    finddialog.h \
+    gotocelldialog.h
+
+FORMS += \
+    gotocelldialog.ui

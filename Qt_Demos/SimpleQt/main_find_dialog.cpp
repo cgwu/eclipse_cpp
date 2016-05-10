@@ -1,7 +1,7 @@
 #include <QApplication>
 #include "finddialog.h"
 
-int main(int argc, char *argv[])
+int main_find_dialog(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     FindDialog *dialog = new FindDialog;
