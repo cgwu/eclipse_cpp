@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/files">
+        <file>tmp_beautify.js</file>
+    </qresource>
+</RCC>
