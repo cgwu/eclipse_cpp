@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSMQSecuredService", "MSMQSecuredService\MSMQSecuredService.csproj", "{8350A014-DCF0-49A6-8B77-FEFD99A3145D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8350A014-DCF0-49A6-8B77-FEFD99A3145D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8350A014-DCF0-49A6-8B77-FEFD99A3145D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8350A014-DCF0-49A6-8B77-FEFD99A3145D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8350A014-DCF0-49A6-8B77-FEFD99A3145D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

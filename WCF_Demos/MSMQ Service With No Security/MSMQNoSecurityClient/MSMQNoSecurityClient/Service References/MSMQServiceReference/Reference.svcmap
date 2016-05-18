@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="aad1a43a-ca66-4053-ae1b-2881e1aa0c0e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://mohammad-pc:8080/Design_Time_Addresses/MSMQNoSecurityService/MSMQService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="d6cd889b-7c66-41a4-8a11-087824dea488" SourceId="1" SourceUrl="http://mohammad-pc:8080/Design_Time_Addresses/MSMQNoSecurityService/MSMQService/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="a84bd190-f82d-4cf1-8b6a-4a1f5d4b3d1b" SourceId="1" SourceUrl="http://mohammad-pc:8080/Design_Time_Addresses/MSMQNoSecurityService/MSMQService/?xsd=xsd0" />
+    <MetadataFile FileName="MSMQService.wsdl" MetadataType="Wsdl" ID="ba293e76-5ba0-461b-94e4-fe5370d8d2ad" SourceId="1" SourceUrl="http://mohammad-pc:8080/Design_Time_Addresses/MSMQNoSecurityService/MSMQService/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="ba015064-a065-4c71-bb5f-694b5a49ac6e" SourceId="1" SourceUrl="http://mohammad-pc:8080/Design_Time_Addresses/MSMQNoSecurityService/MSMQService/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

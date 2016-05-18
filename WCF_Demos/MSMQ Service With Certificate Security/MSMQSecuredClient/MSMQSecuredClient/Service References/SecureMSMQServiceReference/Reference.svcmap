@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3e855f44-c6c9-4970-be66-ff6980ffb29b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://mohammad-pc:8080/Design_Time_Addresses/MSMQSecuredService/SecuredMSMQService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="c725487f-5f98-4ad7-a075-8cb1def57499" SourceId="1" SourceUrl="http://mohammad-pc:8080/Design_Time_Addresses/MSMQSecuredService/SecuredMSMQService/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="3c87f715-9414-4f05-8cb2-2cfb73aa99a8" SourceId="1" SourceUrl="http://mohammad-pc:8080/Design_Time_Addresses/MSMQSecuredService/SecuredMSMQService/?xsd=xsd0" />
+    <MetadataFile FileName="SecuredMSMQService.wsdl" MetadataType="Wsdl" ID="8999f17e-4745-45a8-9834-e37822f9dd55" SourceId="1" SourceUrl="http://mohammad-pc:8080/Design_Time_Addresses/MSMQSecuredService/SecuredMSMQService/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="5c45b994-64b7-45a9-82d0-419629b29ca8" SourceId="1" SourceUrl="http://mohammad-pc:8080/Design_Time_Addresses/MSMQSecuredService/SecuredMSMQService/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
