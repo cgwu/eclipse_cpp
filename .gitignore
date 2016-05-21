@@ -15,3 +15,5 @@ Debug
 **/packages
 .codelite
 demo_build_eclipse
+.idea
+__pycache__
