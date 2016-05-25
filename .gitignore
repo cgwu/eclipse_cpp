@@ -17,3 +17,4 @@ Debug
 demo_build_eclipse
 .idea
 __pycache__
+*build_eclipse

@@ -1,6 +1,6 @@
 #include <stdio.h>
-int main()
+int main_c()
 {
-    printf("Hello 中国万岁\n");
+    printf("Hello �й�.\n");
     return 0;
 }
