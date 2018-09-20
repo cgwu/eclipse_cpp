@@ -1,5 +1,6 @@
 #include "dialog.h"
 #include "ui_dialog.h"
+#include <QMessageBox>
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -19,4 +20,9 @@ Dialog::Dialog(QWidget *parent) :
 Dialog::~Dialog()
 {
     delete ui;
+}
+
+void Dialog::on_btnShowMsg_clicked()
+{
+   QMessageBox::information(this, "title", "hello");
 }
